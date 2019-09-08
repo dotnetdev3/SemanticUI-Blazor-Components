@@ -1,0 +1,25 @@
+﻿@page "/button"
+@using QD.Components.Semantic.Enums
+
+<h1>Buttons</h1>
+
+<h2>Normal Button</h2>
+<Button>Click on me</Button>
+
+<h2>Primary/Secondary Button</h2>
+<Button primary>Primary</Button>
+<Button secondary>Secondary</Button>
+
+<h2>Animated Button</h2>
+<Button animated="@ButtonAnimation.Horizontal">
+    <ButtonContent visible>1</ButtonContent>
+    <ButtonContent hidden>2</ButtonContent>
+</Button>
+<Button animated="@ButtonAnimation.Vertical" primary>
+    <ButtonContent visible>1</ButtonContent>
+    <ButtonContent hidden>2</ButtonContent>
+</Button>
+<Button animated="@ButtonAnimation.Fade" secondary>
+    <ButtonContent visible>1</ButtonContent>
+    <ButtonContent hidden>2</ButtonContent>
+</Button>
