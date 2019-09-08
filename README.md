@@ -10,7 +10,7 @@ You can clone this repository and execute the demo project to see the components
 - [ ] Button
 - [ ] Container
 - [ ] Divider
-- [ ] Flag
+- [X] Flag
 - [ ] Icon
 - [ ] Header
 - [ ] Image
