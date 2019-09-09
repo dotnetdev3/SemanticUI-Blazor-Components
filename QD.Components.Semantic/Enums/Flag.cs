@@ -2,6 +2,9 @@
 
 namespace QD.Components.Semantic.Enums
 {
+	/// <summary>
+	/// Semantic flags
+	/// </summary>
 	public enum Flag
 	{
 		/// <summary>
