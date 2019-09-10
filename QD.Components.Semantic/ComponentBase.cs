@@ -1,28 +1,51 @@
-﻿using Microsoft.AspNetCore.Components.Rendering;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
 
 namespace QD.Components.Semantic
 {
 	public abstract class ComponentBase : Microsoft.AspNetCore.Components.ComponentBase
 	{
+		/// <summary>
+		/// An element type to render as.
+		/// </summary>
 		[Parameter]
 		public string RenderAs { get; set; }
 
+		/// <summary>
+		/// An element component to render as.
+		/// </summary>
 		[Parameter]
 		public Type RenderAsComponent { get; set; }
 
+		/// <summary>
+		/// Child content
+		/// </summary>
 		[Parameter]
 		public RenderFragment ChildContent { get; set; }
 
+		/// <summary>
+		/// Other input attributes
+		/// </summary>
 		[Parameter(CaptureUnmatchedValues = true)]
 		public IDictionary<string, object> InputAttributes { get; set; }
 
+		/// <summary>
+		/// Html Tag
+		/// </summary>
 		protected string ElementTag { get; set; }
+
+		/// <summary>
+		/// CSS classes
+		/// </summary>
 		protected string ElementClass { get; set; }
+		
+		/// <summary>
+		/// All component attributes
+		/// </summary>
 		protected IDictionary<string, object> ElementAttributes { get; }
 
 		private RenderFragment _componentRenderer;
@@ -37,6 +60,13 @@ namespace QD.Components.Semantic
 		protected override void OnInitialized()
 		{
 			ConfigureComponent();
+
+			if (InputAttributes != null && InputAttributes.ContainsKey("Class"))
+			{
+				ElementClass = $"{ElementClass} {InputAttributes["Class"]}";
+				InputAttributes.Remove("Class");
+			}
+
 			_componentRenderer = builder =>
 			{
 				if (RenderAsComponent != null)
