@@ -1,0 +1,304 @@
+﻿@page "/flags"
+@using Flag = QD.Components.Semantic.Enums.Flag
+
+<h1>Flags</h1>
+
+@if (_initialized)
+{
+    <table class="ui table">
+        <thead class="">
+        <tr class="">
+            <th class="">Country</th>
+            <th class="">Name</th>
+            <th class="">Country Code</th>
+            <th class="">Alias</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (Country country in _countries)
+            {
+                <tr>
+                    <td><Flag name="@country.Flag"/></td>
+                    <td>@country.Name</td>
+                    <td>@country.CountryCode</td>
+                    <td>@country.Alias</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="ui active centered inline loader"></div>
+}
+
+
+@code
+{
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Run(() =>
+        {
+            _initialized = true;
+        });
+    }
+
+
+    private struct Country
+    {
+        public Flag Flag { get; set; }
+        public string Name { get; set; }
+        public string CountryCode { get; set; }
+        public string Alias { get; set; }
+    }
+
+    private bool _initialized;
+    private readonly Country[] _countries = {
+        new Country { Name = "Afghanistan", CountryCode = "af", Flag = Flag.Af },
+        new Country { Name = "Aland Islands", CountryCode = "ax", Flag = Flag.Ax },
+        new Country { Name = "Albania", CountryCode = "al", Flag = Flag.Al },
+        new Country { Name = "Algeria", CountryCode = "dz", Flag = Flag.Dz },
+        new Country { Name = "American Samoa", CountryCode = "as", Flag = Flag.As },
+        new Country { Name = "Andorra", CountryCode = "ad", Flag = Flag.Ad },
+        new Country { Name = "Angola", CountryCode = "ao", Flag = Flag.Ao },
+        new Country { Name = "Anguilla", CountryCode = "ai", Flag = Flag.Ai },
+        new Country { Name = "Antigua", CountryCode = "ag", Flag = Flag.Ag },
+        new Country { Name = "Argentina", CountryCode = "ar", Flag = Flag.Ar },
+        new Country { Name = "Aruba", CountryCode = "aw", Flag = Flag.Aw },
+        new Country { Name = "Armenia", CountryCode = "am", Flag = Flag.Am },
+        new Country { Name = "Australia", CountryCode = "au", Flag = Flag.Au },
+        new Country { Name = "Austria", CountryCode = "at", Flag = Flag.At },
+        new Country { Name = "Azerbaijan", CountryCode = "az", Flag = Flag.Az },
+        new Country { Name = "Bahamas", CountryCode = "bs", Flag = Flag.Bs },
+        new Country { Name = "Bahrain", CountryCode = "bh", Flag = Flag.Bh },
+        new Country { Name = "Bangladesh", CountryCode = "bd", Flag = Flag.Bd },
+        new Country { Name = "Barbados", CountryCode = "bb", Flag = Flag.Bb },
+        new Country { Name = "Belarus", CountryCode = "by", Flag = Flag.By },
+        new Country { Name = "Belgium", CountryCode = "be", Flag = Flag.Be },
+        new Country { Name = "Belize", CountryCode = "bz", Flag = Flag.Bz },
+        new Country { Name = "Benin", CountryCode = "bj", Flag = Flag.Bj },
+        new Country { Name = "Bermuda", CountryCode = "bm", Flag = Flag.Bm },
+        new Country { Name = "Bhutan", CountryCode = "bt", Flag = Flag.Bt },
+        new Country { Name = "Bolivia", CountryCode = "bo", Flag = Flag.Bo },
+        new Country { Name = "Bosnia", CountryCode = "ba", Flag = Flag.Ba },
+        new Country { Name = "Botswana", CountryCode = "bw", Flag = Flag.Bw },
+        new Country { Name = "Bouvet Island", CountryCode = "bv", Flag = Flag.Bv },
+        new Country { Name = "Brazil", CountryCode = "br", Flag = Flag.Br },
+        new Country { Name = "British Virgin Islands", CountryCode = "vg", Flag = Flag.Vg },
+        new Country { Name = "Brunei", CountryCode = "bn", Flag = Flag.Bn },
+        new Country { Name = "Bulgaria", CountryCode = "bg", Flag = Flag.Bg },
+        new Country { Name = "Burkina Faso", CountryCode = "bf", Flag = Flag.Bf },
+        new Country { Name = "Burma", CountryCode = "mm", Flag = Flag.Mm },
+        new Country { Name = "Burundi", CountryCode = "bi", Flag = Flag.Bi },
+        new Country { Name = "Caicos Islands", CountryCode = "tc", Flag = Flag.Tc },
+        new Country { Name = "Cambodia", CountryCode = "kh", Flag = Flag.Kh },
+        new Country { Name = "Cameroon", CountryCode = "cm", Flag = Flag.Cm },
+        new Country { Name = "Canada", CountryCode = "ca", Flag = Flag.Ca },
+        new Country { Name = "Cape Verde", CountryCode = "cv", Flag = Flag.Cv },
+        new Country { Name = "Cayman Islands", CountryCode = "ky", Flag = Flag.Ky },
+        new Country { Name = "Central African Republic", CountryCode = "cf", Flag = Flag.Cf },
+        new Country { Name = "Chad", CountryCode = "td", Flag = Flag.Td },
+        new Country { Name = "Chile", CountryCode = "cl", Flag = Flag.Cl },
+        new Country { Name = "China", CountryCode = "cn", Flag = Flag.Cn },
+        new Country { Name = "Christmas Island", CountryCode = "cx", Flag = Flag.Cx },
+        new Country { Name = "Cocos Islands", CountryCode = "cc", Flag = Flag.Cc },
+        new Country { Name = "Colombia", CountryCode = "co", Flag = Flag.Co },
+        new Country { Name = "Comoros", CountryCode = "km", Flag = Flag.Km },
+        new Country { Name = "Congo", CountryCode = "cd", Flag = Flag.Cd },
+        new Country { Name = "Congo Brazzaville", CountryCode = "cg", Flag = Flag.Cg },
+        new Country { Name = "Cook Islands", CountryCode = "ck", Flag = Flag.Ck },
+        new Country { Name = "Costa Rica", CountryCode = "cr", Flag = Flag.Cr },
+        new Country { Name = "Cote Divoire", CountryCode = "ci", Flag = Flag.Ci },
+        new Country { Name = "Croatia", CountryCode = "hr", Flag = Flag.Hr },
+        new Country { Name = "Cuba", CountryCode = "cu", Flag = Flag.Cu },
+        new Country { Name = "Cyprus", CountryCode = "cy", Flag = Flag.Cy },
+        new Country { Name = "Czech Republic", CountryCode = "cz", Flag = Flag.Cz },
+        new Country { Name = "Denmark", CountryCode = "dk", Flag = Flag.Dk },
+        new Country { Name = "Djibouti", CountryCode = "dj", Flag = Flag.Dj },
+        new Country { Name = "Dominica", CountryCode = "dm", Flag = Flag.Dm },
+        new Country { Name = "Dominican Republic", CountryCode = "do", Flag = Flag.Do },
+        new Country { Name = "Ecuador", CountryCode = "ec", Flag = Flag.Ec },
+        new Country { Name = "Egypt", CountryCode = "eg", Flag = Flag.Eg },
+        new Country { Name = "El Salvador", CountryCode = "sv", Flag = Flag.Sv },
+        new Country { Name = "Equatorial Guinea", CountryCode = "gq", Flag = Flag.Gq },
+        new Country { Name = "Eritrea", CountryCode = "er", Flag = Flag.Er },
+        new Country { Name = "Estonia", CountryCode = "ee", Flag = Flag.Ee },
+        new Country { Name = "Ethiopia", CountryCode = "et", Flag = Flag.Et },
+        new Country { Name = "Europeanunion", CountryCode = "eu", Flag = Flag.Eu },
+        new Country { Name = "Falkland Islands", CountryCode = "fk", Flag = Flag.Fk },
+        new Country { Name = "Faroe Islands", CountryCode = "fo", Flag = Flag.Fo },
+        new Country { Name = "Fiji", CountryCode = "fj", Flag = Flag.Fj },
+        new Country { Name = "Finland", CountryCode = "fi", Flag = Flag.Fi },
+        new Country { Name = "France", CountryCode = "fr", Flag = Flag.Fr },
+        new Country { Name = "French Guiana", CountryCode = "gf", Flag = Flag.Gf },
+        new Country { Name = "French Polynesia", CountryCode = "pf", Flag = Flag.Pf },
+        new Country { Name = "French Territories", CountryCode = "tf", Flag = Flag.Tf },
+        new Country { Name = "Gabon", CountryCode = "ga", Flag = Flag.Ga },
+        new Country { Name = "Gambia", CountryCode = "gm", Flag = Flag.Gm },
+        new Country { Name = "Georgia", CountryCode = "ge", Flag = Flag.Ge },
+        new Country { Name = "Germany", CountryCode = "de", Flag = Flag.De },
+        new Country { Name = "Ghana", CountryCode = "gh", Flag = Flag.Gh },
+        new Country { Name = "Gibraltar", CountryCode = "gi", Flag = Flag.Gi },
+        new Country { Name = "Greece", CountryCode = "gr", Flag = Flag.Gr },
+        new Country { Name = "Greenland", CountryCode = "gl", Flag = Flag.Gl },
+        new Country { Name = "Grenada", CountryCode = "gd", Flag = Flag.Gd },
+        new Country { Name = "Guadeloupe", CountryCode = "gp", Flag = Flag.Gp },
+        new Country { Name = "Guam", CountryCode = "gu", Flag = Flag.Gu },
+        new Country { Name = "Guatemala", CountryCode = "gt", Flag = Flag.Gt },
+        new Country { Name = "Guinea", CountryCode = "gn", Flag = Flag.Gn },
+        new Country { Name = "Guinea-Bissau", CountryCode = "gw", Flag = Flag.Gw },
+        new Country { Name = "Guyana", CountryCode = "gy", Flag = Flag.Gy },
+        new Country { Name = "Haiti", CountryCode = "ht", Flag = Flag.Ht },
+        new Country { Name = "Heard Island", CountryCode = "hm", Flag = Flag.Hm },
+        new Country { Name = "Honduras", CountryCode = "hn", Flag = Flag.Hn },
+        new Country { Name = "Hong Kong", CountryCode = "hk", Flag = Flag.Hk },
+        new Country { Name = "Hungary", CountryCode = "hu", Flag = Flag.Hu },
+        new Country { Name = "Iceland", CountryCode = "is", Flag = Flag.Is },
+        new Country { Name = "India", CountryCode = "in", Flag = Flag.In },
+        new Country { Name = "Indian Ocean Territory", CountryCode = "io", Flag = Flag.Io },
+        new Country { Name = "Indonesia", CountryCode = "id", Flag = Flag.Id },
+        new Country { Name = "Iran", CountryCode = "ir", Flag = Flag.Ir },
+        new Country { Name = "Iraq", CountryCode = "iq", Flag = Flag.Iq },
+        new Country { Name = "Ireland", CountryCode = "ie", Flag = Flag.Ie },
+        new Country { Name = "Israel", CountryCode = "il", Flag = Flag.Il },
+        new Country { Name = "Italy", CountryCode = "it", Flag = Flag.It },
+        new Country { Name = "Jamaica", CountryCode = "jm", Flag = Flag.Jm },
+        new Country { Name = "Jan Mayen", CountryCode = "sj", Flag = Flag.Sj },
+        new Country { Name = "Japan", CountryCode = "jp", Flag = Flag.Jp },
+        new Country { Name = "Jordan", CountryCode = "jo", Flag = Flag.Jo },
+        new Country { Name = "Kazakhstan", CountryCode = "kz", Flag = Flag.Kz },
+        new Country { Name = "Kenya", CountryCode = "ke", Flag = Flag.Ke },
+        new Country { Name = "Kiribati", CountryCode = "ki", Flag = Flag.Ki },
+        new Country { Name = "Kuwait", CountryCode = "kw", Flag = Flag.Kw },
+        new Country { Name = "Kyrgyzstan", CountryCode = "kg", Flag = Flag.Kg },
+        new Country { Name = "Laos", CountryCode = "la", Flag = Flag.La },
+        new Country { Name = "Latvia", CountryCode = "lv", Flag = Flag.Lv },
+        new Country { Name = "Lebanon", CountryCode = "lb", Flag = Flag.Lb },
+        new Country { Name = "Lesotho", CountryCode = "ls", Flag = Flag.Ls },
+        new Country { Name = "Liberia", CountryCode = "lr", Flag = Flag.Lr },
+        new Country { Name = "Libya", CountryCode = "ly", Flag = Flag.Ly },
+        new Country { Name = "Liechtenstein", CountryCode = "li", Flag = Flag.Li },
+        new Country { Name = "Lithuania", CountryCode = "lt", Flag = Flag.Lt },
+        new Country { Name = "Luxembourg", CountryCode = "lu", Flag = Flag.Lu },
+        new Country { Name = "Macau", CountryCode = "mo", Flag = Flag.Mo },
+        new Country { Name = "Macedonia", CountryCode = "mk", Flag = Flag.Mk },
+        new Country { Name = "Madagascar", CountryCode = "mg", Flag = Flag.Mg },
+        new Country { Name = "Malawi", CountryCode = "mw", Flag = Flag.Mw },
+        new Country { Name = "Malaysia", CountryCode = "my", Flag = Flag.My },
+        new Country { Name = "Maldives", CountryCode = "mv", Flag = Flag.Mv },
+        new Country { Name = "Mali", CountryCode = "ml", Flag = Flag.Ml },
+        new Country { Name = "Malta", CountryCode = "mt", Flag = Flag.Mt },
+        new Country { Name = "Marshall Islands", CountryCode = "mh", Flag = Flag.Mh },
+        new Country { Name = "Martinique", CountryCode = "mq", Flag = Flag.Mq },
+        new Country { Name = "Mauritania", CountryCode = "mr", Flag = Flag.Mr },
+        new Country { Name = "Mauritius", CountryCode = "mu", Flag = Flag.Mu },
+        new Country { Name = "Mayotte", CountryCode = "yt", Flag = Flag.Yt },
+        new Country { Name = "Mexico", CountryCode = "mx", Flag = Flag.Mx },
+        new Country { Name = "Micronesia", CountryCode = "fm", Flag = Flag.Fm },
+        new Country { Name = "Moldova", CountryCode = "md", Flag = Flag.Md },
+        new Country { Name = "Monaco", CountryCode = "mc", Flag = Flag.Mc },
+        new Country { Name = "Mongolia", CountryCode = "mn", Flag = Flag.Mn },
+        new Country { Name = "Montenegro", CountryCode = "me", Flag = Flag.Me },
+        new Country { Name = "Montserrat", CountryCode = "ms", Flag = Flag.Ms },
+        new Country { Name = "Morocco", CountryCode = "ma", Flag = Flag.Ma },
+        new Country { Name = "Mozambique", CountryCode = "mz", Flag = Flag.Mz },
+        new Country { Name = "Namibia", CountryCode = "na", Flag = Flag.Na },
+        new Country { Name = "Nauru", CountryCode = "nr", Flag = Flag.Nr },
+        new Country { Name = "Nepal", CountryCode = "np", Flag = Flag.Np },
+        new Country { Name = "Netherlands", CountryCode = "nl", Flag = Flag.Nl },
+        new Country { Name = "Netherlandsantilles", CountryCode = "an", Flag = Flag.An },
+        new Country { Name = "New Caledonia", CountryCode = "nc", Flag = Flag.Nc },
+        new Country { Name = "New Guinea", CountryCode = "pg", Flag = Flag.Pg },
+        new Country { Name = "New Zealand", CountryCode = "nz", Flag = Flag.Nz },
+        new Country { Name = "Nicaragua", CountryCode = "ni", Flag = Flag.Ni },
+        new Country { Name = "Niger", CountryCode = "ne", Flag = Flag.Ne },
+        new Country { Name = "Nigeria", CountryCode = "ng", Flag = Flag.Ng },
+        new Country { Name = "Niue", CountryCode = "nu", Flag = Flag.Nu },
+        new Country { Name = "Norfolk Island", CountryCode = "nf", Flag = Flag.Nf },
+        new Country { Name = "North Korea", CountryCode = "kp", Flag = Flag.Kp },
+        new Country { Name = "Northern Mariana Islands", CountryCode = "mp", Flag = Flag.Mp },
+        new Country { Name = "Norway", CountryCode = "no", Flag = Flag.No },
+        new Country { Name = "Oman", CountryCode = "om", Flag = Flag.Om },
+        new Country { Name = "Pakistan", CountryCode = "pk", Flag = Flag.Pk },
+        new Country { Name = "Palau", CountryCode = "pw", Flag = Flag.Pw },
+        new Country { Name = "Palestine", CountryCode = "ps", Flag = Flag.Ps },
+        new Country { Name = "Panama", CountryCode = "pa", Flag = Flag.Pa },
+        new Country { Name = "Paraguay", CountryCode = "py", Flag = Flag.Py },
+        new Country { Name = "Peru", CountryCode = "pe", Flag = Flag.Pe },
+        new Country { Name = "Philippines", CountryCode = "ph", Flag = Flag.Ph },
+        new Country { Name = "Pitcairn Islands", CountryCode = "pn", Flag = Flag.Pn },
+        new Country { Name = "Poland", CountryCode = "pl", Flag = Flag.Pl },
+        new Country { Name = "Portugal", CountryCode = "pt", Flag = Flag.Pt },
+        new Country { Name = "Puerto Rico", CountryCode = "pr", Flag = Flag.Pr },
+        new Country { Name = "Qatar", CountryCode = "qa", Flag = Flag.Qa },
+        new Country { Name = "Reunion", CountryCode = "re", Flag = Flag.Re },
+        new Country { Name = "Romania", CountryCode = "ro", Flag = Flag.Ro },
+        new Country { Name = "Russia", CountryCode = "ru", Flag = Flag.Ru },
+        new Country { Name = "Rwanda", CountryCode = "rw", Flag = Flag.Rw },
+        new Country { Name = "Saint Helena", CountryCode = "sh", Flag = Flag.Sh },
+        new Country { Name = "Saint Kitts and Nevis", CountryCode = "kn", Flag = Flag.Kn },
+        new Country { Name = "Saint Lucia", CountryCode = "lc", Flag = Flag.Lc },
+        new Country { Name = "Saint Pierre", CountryCode = "pm", Flag = Flag.Pm },
+        new Country { Name = "Saint Vincent", CountryCode = "vc", Flag = Flag.Vc },
+        new Country { Name = "Samoa", CountryCode = "ws", Flag = Flag.Ws },
+        new Country { Name = "San Marino", CountryCode = "sm", Flag = Flag.Sm },
+        new Country { Name = "Sandwich Islands", CountryCode = "gs", Flag = Flag.Gs },
+        new Country { Name = "Sao Tome", CountryCode = "st", Flag = Flag.St },
+        new Country { Name = "Saudi Arabia", CountryCode = "sa", Flag = Flag.Sa },
+        new Country { Name = "Scotland", CountryCode = "gb sct", Flag = Flag.GbSct },
+        new Country { Name = "Senegal", CountryCode = "sn", Flag = Flag.Sn },
+        new Country { Name = "Serbia", CountryCode = "cs", Flag = Flag.Cs },
+        new Country { Name = "Serbia", CountryCode = "rs", Flag = Flag.Rs },
+        new Country { Name = "Seychelles", CountryCode = "sc", Flag = Flag.Sc },
+        new Country { Name = "Sierra Leone", CountryCode = "sl", Flag = Flag.Sl },
+        new Country { Name = "Singapore", CountryCode = "sg", Flag = Flag.Sg },
+        new Country { Name = "Slovakia", CountryCode = "sk", Flag = Flag.Sk },
+        new Country { Name = "Slovenia", CountryCode = "si", Flag = Flag.Si },
+        new Country { Name = "Solomon Islands", CountryCode = "sb", Flag = Flag.Sb },
+        new Country { Name = "Somalia", CountryCode = "so", Flag = Flag.So },
+        new Country { Name = "South Africa", CountryCode = "za", Flag = Flag.Za },
+        new Country { Name = "South Korea", CountryCode = "kr", Flag = Flag.Kr },
+        new Country { Name = "Spain", CountryCode = "es", Flag = Flag.Es },
+        new Country { Name = "Sri Lanka", CountryCode = "lk", Flag = Flag.Lk },
+        new Country { Name = "Sudan", CountryCode = "sd", Flag = Flag.Sd },
+        new Country { Name = "SuriName", CountryCode = "sr", Flag = Flag.Sr },
+        new Country { Name = "Swaziland", CountryCode = "sz", Flag = Flag.Sz },
+        new Country { Name = "Sweden", CountryCode = "se", Flag = Flag.Se },
+        new Country { Name = "Switzerland", CountryCode = "ch", Flag = Flag.Ch },
+        new Country { Name = "Syria", CountryCode = "sy", Flag = Flag.Sy },
+        new Country { Name = "Taiwan", CountryCode = "tw", Flag = Flag.Tw },
+        new Country { Name = "Tajikistan", CountryCode = "tj", Flag = Flag.Tj },
+        new Country { Name = "Tanzania", CountryCode = "tz", Flag = Flag.Tz },
+        new Country { Name = "Thailand", CountryCode = "th", Flag = Flag.Th },
+        new Country { Name = "Timorleste", CountryCode = "tl", Flag = Flag.Tl },
+        new Country { Name = "Togo", CountryCode = "tg", Flag = Flag.Tg },
+        new Country { Name = "Tokelau", CountryCode = "tk", Flag = Flag.Tk },
+        new Country { Name = "Tonga", CountryCode = "to", Flag = Flag.To },
+        new Country { Name = "Trinidad", CountryCode = "tt", Flag = Flag.Tt },
+        new Country { Name = "Tunisia", CountryCode = "tn", Flag = Flag.Tn },
+        new Country { Name = "Turkey", CountryCode = "tr", Flag = Flag.Tr },
+        new Country { Name = "Turkmenistan", CountryCode = "tm", Flag = Flag.Tm },
+        new Country { Name = "Tuvalu", CountryCode = "tv", Flag = Flag.Tv },
+        new Country { Name = "U.A.E.", CountryCode = "ae", Flag = Flag.Ae },
+        new Country { Name = "Uganda", CountryCode = "ug", Flag = Flag.Ug },
+        new Country { Name = "Ukraine", CountryCode = "ua", Flag = Flag.Ua },
+        new Country { Name = "United Kingdom", CountryCode = "gb", Flag = Flag.Gb },
+        new Country { Name = "United States", CountryCode = "us", Flag = Flag.Us },
+        new Country { Name = "Uruguay", CountryCode = "uy", Flag = Flag.Uy },
+        new Country { Name = "US Minor Islands", CountryCode = "um", Flag = Flag.Um },
+        new Country { Name = "US Virgin Islands", CountryCode = "vi", Flag = Flag.Vi },
+        new Country { Name = "Uzbekistan", CountryCode = "uz", Flag = Flag.Uz },
+        new Country { Name = "Vanuatu", CountryCode = "vu", Flag = Flag.Vu },
+        new Country { Name = "Vatican City", CountryCode = "va", Flag = Flag.Va },
+        new Country { Name = "Venezuela", CountryCode = "ve", Flag = Flag.Ve },
+        new Country { Name = "Vietnam", CountryCode = "vn", Flag = Flag.Vn },
+        new Country { Name = "Wales", CountryCode = "gb wls", Flag = Flag.GbWls },
+        new Country { Name = "Wallis and Futuna", CountryCode = "wf", Flag = Flag.Wf },
+        new Country { Name = "Western Sahara", CountryCode = "eh", Flag = Flag.Eh },
+        new Country { Name = "Yemen", CountryCode = "ye", Flag = Flag.Ye },
+        new Country { Name = "Zambia", CountryCode = "zm", Flag = Flag.Zm },
+        new Country { Name = "Zimbabwe", CountryCode = "zw", Flag = Flag.Zw },
+    };
+
+}
