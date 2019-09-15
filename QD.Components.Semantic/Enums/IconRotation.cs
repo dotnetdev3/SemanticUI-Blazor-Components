@@ -7,9 +7,11 @@ namespace QD.Components.Semantic.Enums
 	/// </summary>
 	public enum IconRotation
 	{
+		[Description("none")]
+		None,
 		[Description("clockwise")]
 		Clockwise,
-		[Description("Counterclockwise")]
+		[Description("counterclockwise")]
 		Counterclockwise
 	}
 }

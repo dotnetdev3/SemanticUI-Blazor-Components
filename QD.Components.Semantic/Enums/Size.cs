@@ -7,6 +7,8 @@ namespace QD.Components.Semantic.Enums
 	/// </summary>
 	public enum Size
 	{
+		[Description("none")]
+		None,
 		[Description("mini")]
 		Mini,
 		[Description("tiny")]

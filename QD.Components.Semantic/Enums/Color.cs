@@ -7,6 +7,8 @@ namespace QD.Components.Semantic.Enums
 	/// </summary>
 	public enum Color
 	{
+		[Description("none")]
+		None,
 		[Description("red")]
 		Red,
 		[Description("orange")]

@@ -7,6 +7,8 @@ namespace QD.Components.Semantic.Enums
 	/// </summary>
 	public enum IconFlipDirection
 	{
+		[Description("none")]
+		None,
 		[Description("horizontally")]
 		Horizontally,
 		[Description("vertically")]
