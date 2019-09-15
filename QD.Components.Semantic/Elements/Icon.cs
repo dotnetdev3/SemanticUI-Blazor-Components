@@ -98,6 +98,7 @@ namespace QD.Components.Semantic.Elements
 		[Parameter]
 		public Size Size { get; set; }
 
+		/// <inheritdoc />
 		protected override void ConfigureComponent()
 		{
 			string color = "";
