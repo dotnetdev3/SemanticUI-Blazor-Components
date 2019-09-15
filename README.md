@@ -11,7 +11,7 @@ You can clone this repository and execute the demo project to see the components
 - [ ] Container
 - [ ] Divider
 - [X] Flag
-- [ ] Icon
+- [X] Icon
 - [ ] Header
 - [ ] Image
 - [ ] Input
