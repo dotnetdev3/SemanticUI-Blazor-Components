@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using QD.Components.Semantic.Enums;
 
 namespace QD.Components.Semantic.Elements
@@ -103,8 +100,72 @@ namespace QD.Components.Semantic.Elements
 
 		protected override void ConfigureComponent()
 		{
+			string color = "";
+			string options = "";
 			ElementTag = "i";
-			ElementClass = $"{Name.GetDescription()} icon";
+
+			if (Disabled)
+			{
+				options = $"{options}disabled ";
+			}
+
+			if (Loading)
+			{
+				options = $"{options}loading ";
+			}
+
+			if (Fitted)
+			{
+				options = $"{options}fitted ";
+			}
+
+			if (Link)
+			{
+				options = $"{options}link ";
+			}
+
+			if (Flipped != IconFlipDirection.None)
+			{
+				options = $"{options}{Flipped.GetDescription()} flipped ";
+			}
+
+			if (Rotated != IconRotation.None)
+			{
+				options = $"{options}{Rotated.GetDescription()} rotated ";
+			}
+
+			if (Corner != IconCorner.None)
+			{
+				options = Corner == IconCorner.Default ? $"{options} corner " : $"{options}{Corner.GetDescription()} corner ";
+			}
+
+			if (Circular)
+			{
+				options = $"{options}circular ";
+			}
+
+			if (Bordered)
+			{
+				options = $"{options}bordered ";
+			}
+
+			if (Inverted)
+			{
+				options = $"{options}inverted ";
+			}
+
+			if (Color != Color.None)
+			{
+				color = $"{Color.GetDescription()} ";
+			}
+
+
+			if (Size != Size.None)
+			{
+				options = $"{options}{Size.GetDescription()} ";
+			}
+
+			ElementClass = $"{color}{Name.GetDescription()} {options}icon";
 		}
 	}
 }

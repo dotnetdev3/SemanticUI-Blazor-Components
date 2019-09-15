@@ -7,6 +7,10 @@ namespace QD.Components.Semantic.Enums
 	/// </summary>
 	public enum IconCorner
 	{
+		[Description("none")]
+		None,
+		[Description("none")]
+		Default,
 		[Description("top left")]
 		TopLeft,
 		[Description("top right")]
