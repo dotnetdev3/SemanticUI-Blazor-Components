@@ -1,0 +1,167 @@
+﻿@page "/icons"
+@using QD.Components.Semantic.Enums
+@using Icon = QD.Components.Semantic.Enums.Icon
+
+<h1>Icons</h1>
+
+<h2>Disabled</h2>
+<Icon disabled name="@Icon.Users" />
+
+<h2>Loading</h2>
+<Icon loading name="@Icon.Spinner" />
+<Icon loading name="@Icon.Certificate" />
+<Icon loading name="@Icon.Asterisk" />
+
+<h2>Fitted</h2>
+<div>
+    This icon
+    <Icon fitted name="@Icon.Help" />
+    is fitted.
+    <br />
+    This icon
+    <Icon name="@Icon.Help" />
+    is not.
+</div>
+
+
+<h2>Size</h2>
+<div>
+    <Icon name="@Icon.Home" size="@Size.Mini" />
+    <Icon name="@Icon.Home" size="@Size.Tiny" />
+    <Icon name="@Icon.Home" size="@Size.Small" />
+    <Icon name="@Icon.Home" size="@Size.Small" />
+    <br />
+    <Icon name="@Icon.Home" />
+    <br />
+    <Icon name="@Icon.Home" size="@Size.Large" />
+    <br />
+    <Icon name="@Icon.Home" size="@Size.Big" />
+    <br />
+    <Icon name="@Icon.Home" size="@Size.Huge" />
+    <br />
+    <Icon name="@Icon.Home" size="@Size.Massive" />
+</div>
+
+<h2>Link</h2>
+<div>
+    <Icon link name="@Icon.Close" />
+    <Icon link name="@Icon.Help" />
+</div>
+
+<h2>Flipped</h2>
+<div>
+    <Icon flipped="@IconFlipDirection.Horizontally" name="@Icon.Cloud" />
+    <Icon flipped="@IconFlipDirection.Vertically" name="@Icon.Cloud" />
+</div>
+
+<h2>Rotated</h2>
+<div>
+    <Icon rotated="@IconRotation.Clockwise" name="@Icon.Cloud" />
+    <Icon rotated="@IconRotation.Counterclockwise" name="@Icon.Cloud" />
+</div>
+
+<h2>Circular</h2>
+<div>
+    <Icon circular name="@Icon.Users" />
+    <Icon circular color="@Color.Teal" name="@Icon.Users" />
+    <Icon circular inverted name="@Icon.Users" />
+    <Icon circular inverted color="@Color.Teal" name="@Icon.Users" />
+</div>
+
+<h2>Bordered</h2>
+<div>
+    <Icon bordered name="@Icon.Users" />
+    <Icon bordered color="@Color.Teal" name="@Icon.Users" />
+    <Icon bordered inverted color="@Color.Black" name="@Icon.Users" />
+    <Icon bordered inverted color="@Color.Teal" name="@Icon.Users" />
+</div>
+
+<h2>Colored</h2>
+<div>
+    <Icon color="@Color.Red" name="@Icon.Users" />
+    <Icon color="@Color.Orange" name="@Icon.Users" />
+    <Icon color="@Color.Yellow" name="@Icon.Users" />
+    <Icon color="@Color.Olive" name="@Icon.Users" />
+    <Icon color="@Color.Green" name="@Icon.Users" />
+    <Icon color="@Color.Teal" name="@Icon.Users" />
+    <Icon color="@Color.Blue" name="@Icon.Users" />
+    <Icon color="@Color.Violet" name="@Icon.Users" />
+    <Icon color="@Color.Purple" name="@Icon.Users" />
+    <Icon color="@Color.Pink" name="@Icon.Users" />
+    <Icon color="@Color.Brown" name="@Icon.Users" />
+    <Icon color="@Color.Grey" name="@Icon.Users" />
+    <Icon color="@Color.Black" name="@Icon.Users" />
+</div>
+
+<h2>Inverted</h2>
+<div class="ui inverted segment">
+    <Icon inverted color="@Color.Red" name="@Icon.Users" />
+    <Icon inverted color="@Color.Orange" name="@Icon.Users" />
+    <Icon inverted color="@Color.Yellow" name="@Icon.Users" />
+    <Icon inverted color="@Color.Olive" name="@Icon.Users" />
+    <Icon inverted color="@Color.Green" name="@Icon.Users" />
+    <Icon inverted color="@Color.Teal" name="@Icon.Users" />
+    <Icon inverted color="@Color.Blue" name="@Icon.Users" />
+    <Icon inverted color="@Color.Violet" name="@Icon.Users" />
+    <Icon inverted color="@Color.Purple" name="@Icon.Users" />
+    <Icon inverted color="@Color.Pink" name="@Icon.Users" />
+    <Icon inverted color="@Color.Brown" name="@Icon.Users" />
+    <Icon inverted color="@Color.Grey" name="@Icon.Users" />
+    <Icon inverted color="@Color.Black" name="@Icon.Users" />
+</div>
+
+
+<h1>Groups</h1>
+
+<h2>Icons</h2>
+<IconGroup size="@Size.Huge">
+    <Icon size="@Size.Big" name="@Icon.CircleOutline" />
+    <Icon name="@Icon.User" />
+</IconGroup>
+
+<div>
+    <IconGroup size="@Size.Huge">
+        <Icon size="@Size.Big" color="@Color.Red" name="@Icon.Dont" />
+        <Icon color="@Color.Black" name="@Icon.User" />
+    </IconGroup>
+    <IconGroup size="@Size.Huge">
+        <Icon loading size="@Size.Big" name="@Icon.CircleNotch" />
+        <Icon name="@Icon.User" />
+    </IconGroup>
+</div>
+
+<h2>Corner icon</h2>
+<IconGroup size="@Size.Huge">
+    <Icon name="@Icon.Puzzle" />
+    <Icon corner="@IconCorner.Default" name="@Icon.Add" />
+</IconGroup>
+
+<div>
+    <IconGroup size="@Size.Huge">
+        <Icon name="@Icon.Puzzle" />
+        <Icon corner="@IconCorner.TopLeft" name="@Icon.Add" />
+    </IconGroup>
+
+    <IconGroup size="@Size.Huge">
+        <Icon name="@Icon.Puzzle" />
+        <Icon corner="@IconCorner.TopRight" name="@Icon.Add" />
+    </IconGroup>
+
+    <IconGroup size="@Size.Huge">
+        <Icon name="@Icon.Puzzle" />
+        <Icon corner="@IconCorner.BottomLeft" name="@Icon.Add" />
+    </IconGroup>
+
+    <IconGroup size="@Size.Huge">
+        <Icon name="@Icon.Puzzle" />
+        <Icon corner="@IconCorner.BottomRight" name="@Icon.Add" />
+    </IconGroup>
+</div>
+
+<h2 class="ui header">
+    <IconGroup size="@Size.Large">
+        <Icon name="@Icon.Twitter" />
+        <Icon corner="@IconCorner.Default" name="@Icon.Add" />
+    </IconGroup>
+    Add on Twitter
+</h2>
