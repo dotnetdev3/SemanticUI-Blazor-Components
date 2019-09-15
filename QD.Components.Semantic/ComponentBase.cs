@@ -119,7 +119,7 @@ namespace QD.Components.Semantic
 		private void ThrowForUnknownIncomingParameterName(string parameterName)
 		{
 			Type componentType = GetType();
-			PropertyInfo property = componentType.GetProperty(parameterName, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+			PropertyInfo property = componentType.GetProperty(parameterName, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public);
 			if (property != null)
 			{
 				if (!property.IsDefined(typeof(ParameterAttribute)) && !property.IsDefined(typeof(CascadingParameterAttribute)))
