@@ -3,7 +3,7 @@
 namespace QD.Components.Semantic.Enums
 {
 	/// <summary>
-	/// Semantic flags
+	/// Semantic flag
 	/// </summary>
 	public enum Flag
 	{
