@@ -1,5 +1,6 @@
 ﻿@page "/buttons"
 @using QD.Components.Semantic.Enums
+@using QD.Components.Semantic.Enums.Button
 
 <h1>Buttons</h1>
 
@@ -11,15 +12,15 @@
 <Button secondary>Secondary</Button>
 
 <h2>Animated Button</h2>
-<Button animated="@ButtonAnimation.Horizontal">
+<Button animated="@Animation.Horizontal">
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
-<Button animated="@ButtonAnimation.Vertical" primary>
+<Button animated="@Animation.Vertical" primary>
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
-<Button animated="@ButtonAnimation.Fade" secondary>
+<Button animated="@Animation.Fade" secondary>
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
