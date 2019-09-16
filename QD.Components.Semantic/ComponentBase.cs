@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace QD.Components.Semantic
 {
+	/// <summary>
+	/// Component base for semantic components
+	/// </summary>
 	public abstract class ComponentBase : Microsoft.AspNetCore.Components.ComponentBase
 	{
 		/// <summary>
@@ -42,7 +45,7 @@ namespace QD.Components.Semantic
 		/// CSS classes
 		/// </summary>
 		protected string ElementClass { get; set; }
-		
+
 		/// <summary>
 		/// All component attributes
 		/// </summary>
@@ -50,6 +53,9 @@ namespace QD.Components.Semantic
 
 		private RenderFragment _componentRenderer;
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
 		protected ComponentBase()
 		{
 			ElementTag = "div";
@@ -57,6 +63,7 @@ namespace QD.Components.Semantic
 			ElementAttributes = new Dictionary<string, object>();
 		}
 
+		/// <inheritdoc />
 		protected override void OnInitialized()
 		{
 			ConfigureComponent();
@@ -95,6 +102,7 @@ namespace QD.Components.Semantic
 		}
 
 
+		/// <inheritdoc />
 		public override async Task SetParametersAsync(ParameterView parameters)
 		{
 			await base.SetParametersAsync(parameters);
@@ -111,6 +119,7 @@ namespace QD.Components.Semantic
 			}
 		}
 
+		/// <inheritdoc />
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
 			builder.AddContent(0, _componentRenderer);
@@ -119,7 +128,7 @@ namespace QD.Components.Semantic
 		private void ThrowForUnknownIncomingParameterName(string parameterName)
 		{
 			Type componentType = GetType();
-			PropertyInfo property = componentType.GetProperty(parameterName, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+			PropertyInfo property = componentType.GetProperty(parameterName, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public);
 			if (property != null)
 			{
 				if (!property.IsDefined(typeof(ParameterAttribute)) && !property.IsDefined(typeof(CascadingParameterAttribute)))
@@ -129,6 +138,9 @@ namespace QD.Components.Semantic
 			throw new InvalidOperationException("Object of type '" + componentType.FullName + "' does not have a property matching the name '" + parameterName + "'.");
 		}
 
+		/// <summary>
+		/// Configure the semantic component to be rendered
+		/// </summary>
 		protected abstract void ConfigureComponent();
 	}
 }

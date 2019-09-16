@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using QD.Components.Semantic.Enums;
+using QD.Components.Semantic.Enums.Icon;
 
 namespace QD.Components.Semantic.Elements
 {
@@ -42,7 +43,7 @@ namespace QD.Components.Semantic.Elements
 		/// Icons can display a smaller corner icon.
 		/// </summary>
 		[Parameter]
-		public IconCorner Corner { get; set; }
+		public Corner Corner { get; set; }
 
 		/// <summary>
 		/// Show that the icon is inactive.
@@ -60,7 +61,7 @@ namespace QD.Components.Semantic.Elements
 		/// Icon can be flipped.
 		/// </summary>
 		[Parameter]
-		public IconFlipDirection Flipped { get; set; }
+		public FlipDirection Flipped { get; set; }
 
 		/// <summary>
 		/// Formatted to have its colors inverted for contrast.
@@ -84,13 +85,13 @@ namespace QD.Components.Semantic.Elements
 		/// Name of the icon.
 		/// </summary>
 		[Parameter]
-		public Enums.Icon Name { get; set; }
+		public Enums.Elements.Icon Name { get; set; }
 
 		/// <summary>
 		/// Icon can rotated.
 		/// </summary>
 		[Parameter]
-		public IconRotation Rotated { get; set; }
+		public Rotation Rotated { get; set; }
 
 		/// <summary>
 		/// Size of the icon.
@@ -125,19 +126,19 @@ namespace QD.Components.Semantic.Elements
 				options = $"{options}link ";
 			}
 
-			if (Flipped != IconFlipDirection.None)
+			if (Flipped != FlipDirection.None)
 			{
 				options = $"{options}{Flipped.GetDescription()} flipped ";
 			}
 
-			if (Rotated != IconRotation.None)
+			if (Rotated != Rotation.None)
 			{
 				options = $"{options}{Rotated.GetDescription()} rotated ";
 			}
 
-			if (Corner != IconCorner.None)
+			if (Corner != Corner.None)
 			{
-				options = Corner == IconCorner.Default ? $"{options} corner " : $"{options}{Corner.GetDescription()} corner ";
+				options = Corner == Corner.Default ? $"{options} corner " : $"{options}{Corner.GetDescription()} corner ";
 			}
 
 			if (Circular)
