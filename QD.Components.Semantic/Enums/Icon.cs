@@ -3,7 +3,7 @@
 namespace QD.Components.Semantic.Enums
 {
 	/// <summary>
-	/// Semantic icons
+	/// Semantic icon
 	/// </summary>
 	public enum Icon
 	{

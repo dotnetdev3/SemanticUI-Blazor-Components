@@ -32,7 +32,7 @@ You can clone this repository and execute the demo project to see the components
 # Features
 ## Elements
 - [ ] Button
-- [ ] Container
+- [X] Container
 - [ ] Divider
 - [X] Flag
 - [X] Icon
