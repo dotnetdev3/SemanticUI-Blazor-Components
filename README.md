@@ -22,17 +22,17 @@
 
 
 
-# Razor Semantic Components
+# Razor Semantic UI Components
 
-These components aim to provide the same components that are available in Semantic React, but for the new Blazor framework
+These components aim to provide the same components that are available in Semantic UI React, but for the new Blazor framework
 
 # Demo
-You can clone this repository and execute the demo project to see the components in action
+You can clone this repository and execute the demo project to see the components in action, demo use Blazor WebAssembly
 
 # Features
 ## Elements
 - [ ] Button
-- [ ] Container
+- [X] Container
 - [ ] Divider
 - [X] Flag
 - [X] Icon

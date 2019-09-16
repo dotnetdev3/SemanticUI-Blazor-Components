@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 
-namespace QD.Components.Semantic.Enums
+namespace QD.Components.Semantic.Enums.Elements
 {
 	/// <summary>
-	/// Semantic flags
+	/// Semantic flag
 	/// </summary>
 	public enum Flag
 	{
