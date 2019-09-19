@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>\QD.Components.Semantic.xml</DocumentationFile>
+    <DocumentationFile>.\QD.Components.Semantic.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>\QD.Components.Semantic.xml</DocumentationFile>
+    <DocumentationFile>.\QD.Components.Semantic.xml</DocumentationFile>
   </PropertyGroup>
 
 
