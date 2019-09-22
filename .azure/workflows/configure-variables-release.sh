@@ -11,10 +11,10 @@ echo "Configuring package version"
 
 commitId=$BUILD_SOURCEVERSION
 
-gitTagVersion="$(git describe --exact-match $($commitId) --abbrev=0 --tags --first-parent)"
+gitTagVersion="$(git describe --exact-match $commitId --abbrev=0 --tags --first-parent)"
 appVersion=${gitTagVersion:1}
-echo "Git version: $($gitTagVersion)"
-echo "App version: $($appVersion)"
+echo "Git version: $gitTagVersion"
+echo "App version: $appVersion"
 
 if [[ ! $(check_version ${appVersion}) ]]; then
   exit 1;
