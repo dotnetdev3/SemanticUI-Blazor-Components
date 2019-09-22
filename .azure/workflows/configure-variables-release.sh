@@ -9,7 +9,9 @@ function check_version() {
 
 echo "Configuring package version"
 
-gitTagVersion="$(git describe --exact-match $(Build.SourceVersion) --abbrev=0 --tags --first-parent)"
+commitId=$BUILD_SOURCEVERSION
+
+gitTagVersion="$(git describe --exact-match $($commitId) --abbrev=0 --tags --first-parent)"
 appVersion=${gitTagVersion:1}
 echo "Git version: $($gitTagVersion)"
 echo "App version: $($appVersion)"
