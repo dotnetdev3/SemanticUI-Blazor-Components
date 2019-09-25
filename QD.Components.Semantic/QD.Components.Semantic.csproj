@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/Daniel127/SemanticUI-Razor-Components</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Daniel127/SemanticUI-Razor-Components</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Daniel127/SemanticUI-Blazor-Components</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Daniel127/SemanticUI-Blazor-Components</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Components;Component;Blazor;Razor;Semantic;UI</PackageTags>
     <Authors>Daniel Quiñones</Authors>
