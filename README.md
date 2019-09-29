@@ -28,6 +28,55 @@ These components aim to provide the same components that are available in Semant
 # Demo
 You can clone this repository and execute the demo project to see the components in action, demo use Blazor WebAssembly
 
+# How to use
+
+- Add Semantic UI CSS, for example from CDN
+``` html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        ...
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
+        ...
+    </head>
+    <body>
+    ...
+    </body>
+</html>
+```
+- Add Nuget package
+``` powershell
+dotnet add package QD.Components.Semantic
+```
+
+- Add usings in __*_imports.razor*__
+``` razor
+@using QD.Components.Semantic.Elements
+```
+
+- Create amazing app
+
+``` razor
+@page "/buttons"
+@using QD.Components.Semantic.Enums.Button
+@using Icon = QD.Components.Semantic.Enums.Elements.Icon
+
+...
+
+<h2>Loading</h2>
+<Icon loading name="@Icon.Spinner" />
+
+...
+
+<h2>Animated Button</h2>
+<Button animated="@Animation.Horizontal">
+    <ButtonContent visible>Text 1</ButtonContent>
+    <ButtonContent hidden>Text 2</ButtonContent>
+</Button>
+
+...
+```
+
 # Features
 ## Elements
 - [ ] Button
