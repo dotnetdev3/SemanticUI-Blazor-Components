@@ -9,6 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Components;Component;Blazor;Razor;Semantic;UI</PackageTags>
     <Authors>Daniel Quiñones</Authors>
+    <Description>These components aim to provide the same components that are available in Semantic UI React, but for the new Blazor framework</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
