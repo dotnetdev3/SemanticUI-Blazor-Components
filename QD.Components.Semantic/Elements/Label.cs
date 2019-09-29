@@ -59,6 +59,12 @@ namespace QD.Components.Semantic.Elements
 		public bool Floating { get; set; }
 
 		/// <summary>
+		/// A horizontal label is formatted to label content along-side it horizontally.
+		/// </summary>
+		[Parameter]
+		public bool Horizontal { get; set; }
+
+		/// <summary>
 		/// A label can be formatted to emphasize an image.
 		/// </summary>
 		[Parameter]
@@ -97,7 +103,71 @@ namespace QD.Components.Semantic.Elements
 		/// <inheritdoc />
 		protected override void ConfigureComponent()
 		{
+			ElementClass = "ui";
 
+			if (Color != Color.None)
+			{
+				ElementClass = $"{ElementClass} {Color.GetDescription()}";
+			}
+
+			if (Image)
+			{
+				ElementClass = $"{ElementClass} image";
+			}
+
+			if (Corner != Corner.None)
+			{
+				ElementClass = $"{ElementClass} {Corner.GetDescription()} corner";
+			}
+
+			if (Pointing != Direction.None)
+			{
+				if (Pointing == Direction.Left || Pointing == Direction.Right)
+				{
+					ElementClass = $"{ElementClass} {Pointing.GetDescription()} pointing";
+				}
+				else
+				{
+					ElementClass = $"{ElementClass} pointing {Pointing.GetDescription()}";
+				}
+			}
+
+			if (Attached != Side.None)
+			{
+				ElementClass = $"{ElementClass} {Attached.GetDescription()} attached";
+			}
+
+			if (Prompt)
+			{
+				ElementClass = $"{ElementClass} prompt";
+			}
+
+			if (Tag)
+			{
+				ElementClass = $"{ElementClass} tag";
+			}
+
+			if (Ribbon != Ribbon.None)
+			{
+				ElementClass = Ribbon == Ribbon.Left ? $"{ElementClass} ribbon" : $"{ElementClass} {Ribbon.GetDescription()} ribbon";
+			}
+
+			if (Horizontal)
+			{
+				ElementClass = $"{ElementClass} horizontal";
+			}
+
+			if (Floating)
+			{
+				ElementClass = $"{ElementClass} floating";
+			}
+
+			if (Basic)
+			{
+				ElementClass = $"{ElementClass} basic";
+			}
+
+			ElementClass = $"{ElementClass} label";
 		}
 	}
 }

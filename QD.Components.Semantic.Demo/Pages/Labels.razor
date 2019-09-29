@@ -1,0 +1,331 @@
+﻿@page "/labels"
+@using QD.Components.Semantic.Enums
+@using QD.Components.Semantic.Enums.Label
+@using Icon = QD.Components.Semantic.Enums.Elements.Icon
+
+<h1>Labels</h1>
+
+<h2>Label</h2>
+<Label>
+    <Icon name="@Icon.Mail" /> 23
+</Label>
+
+<br />
+<br />
+
+<div>
+    <Label renderAs="a" image>
+        <img src="/images/avatar/small/joe.jpg" alt="Joe" />
+        Joe
+    </Label>
+    <Label renderAs="a" image>
+        <img src="/images/avatar/small/elliot.jpg" alt="Elliot" />
+        Elliot
+    </Label>
+    <Label renderAs="a" image>
+        <img src="/images/avatar/small/stevie.jpg" alt="Stevie" />
+        Stevie
+    </Label>
+</div>
+
+<br />
+
+<div>
+    <Label renderAs="a" color="@Color.Blue" image>
+        <img src="/images/avatar/small/veronika.jpg" alt="Veronika" />
+        Veronika
+        <LabelDetail>Friend</LabelDetail>
+    </Label>
+    <Label renderAs="a" color="@Color.Teal" image>
+        <img src="/images/avatar/small/jenny.jpg" alt="Jenny" />
+        Jenny
+        <LabelDetail>Friend</LabelDetail>
+    </Label>
+    <Label renderAs="a" color="@Color.Yellow" image>
+        <img src="/images/avatar/small/christian.jpg" alt="Christian" />
+        Christian
+        <LabelDetail>Co-worker</LabelDetail>
+    </Label>
+</div>
+
+<br />
+
+<div>
+    <Label image>
+        <img src="/images/avatar/small/ade.jpg" alt="Adrienne" />
+        Adrienne
+        <Icon name="@Icon.Delete" />
+    </Label>
+    <Label image>
+        <img src="/images/avatar/small/zoe.jpg" alt="Zoe" />
+        Zoe
+        <Icon name="@Icon.Delete" />
+    </Label>
+    <Label image>
+        <img src="/images/avatar/small/nan.jpg" alt="Nan" />
+        Nan
+        <Icon name="@Icon.Delete" />
+    </Label>
+</div>
+
+<h2>Pointing</h2>
+
+<form class="ui form">
+    <div class="field">
+        <input type="text" placeholder="First name" />
+        <Label pointing="@Direction.Above">Please enter a value</Label>
+    </div>
+    <div class="ui divider"></div>
+    <div class="field">
+        <Label pointing="@Direction.Below">Please enter a value</Label>
+        <input type="text" placeholder="Last Name" />
+    </div>
+    <div class="ui divider"></div>
+    <div class="inline field">
+        <input type="text" placeholder="Username" />
+        <Label pointing="@Direction.Left">That name is taken!</Label>
+    </div>
+    <div class="ui divider"></div>
+    <div class="inline field">
+        <Label pointing="@Direction.Right">Your password must be 6 characters or more</Label>
+        <input type="password" placeholder="Password" />
+    </div>
+</form>
+
+<br />
+<br />
+
+<form class="ui form">
+    <div class="field">
+        <input type="text" placeholder="First name" />
+        <Label basic color="@Color.Red" pointing="@Direction.Above">
+            Please enter a value
+        </Label>
+    </div>
+    <div class="ui divider"></div>
+    <div class="field">
+        <Label basic color="@Color.Red" pointing="@Direction.Below">
+            Please enter a value
+        </Label>
+        <input type="text" placeholder="Last Name" />
+    </div>
+    <div class="ui divider"></div>
+    <div class="inline field">
+        <input type="text" placeholder="Username" />
+        <Label basic color="@Color.Red" pointing="@Direction.Left">
+            That name is taken!
+        </Label>
+    </div>
+    <div class="ui divider"></div>
+    <div class="inline field">
+        <Label basic color="@Color.Red" pointing="@Direction.Right">
+            Your password must be 6 characters or more
+        </Label>
+        <input type="password" placeholder="Password" />
+    </div>
+</form>
+
+<br />
+<br />
+
+<h2>Prompt</h2>
+<form class="ui form">
+    <div class="field">
+        <div class="ui input"><input type="text" placeholder="First name" /></div>
+        <Label pointing="@Direction.Above" prompt> Please enter a value </Label>
+    </div>
+</form>
+
+<br />
+<br />
+
+<h2>Corner</h2>
+<div class="ui two column grid">
+    <div class="column">
+        <div class="ui fluid image">
+            <Label renderAs="a" corner="@Corner.Left">
+                <Icon name="@Icon.Heart" />
+            </Label>
+            <img src="/images/wireframe/image.png" />
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui fluid image">
+            <Label renderAs="a" corner="@Corner.Right" color="@Color.Red">
+                <Icon name="@Icon.Save" />
+            </Label>
+            <img src="/images/wireframe/image.png" />
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<h2>Tag</h2>
+<div>
+    <Label renderAs="a" tag>
+        New
+    </Label>
+    <Label renderAs="a" color="@Color.Red" tag>
+        Upcoming
+    </Label>
+    <Label renderAs="a" color="@Color.Teal" tag>
+        Featured
+    </Label>
+</div>
+
+<br />
+<br />
+
+<h2>Ribbon</h2>
+<div class="ui two column grid">
+    <div class="column">
+        <div class="ui raised segment">
+            <Label renderAs="a" color="@Color.Red" ribbon="@Ribbon.Left">
+                Overview
+            </Label>
+            <span>Account Details</span>
+            <img src="/images/wireframe/paragraph.png" class="ui image" />
+            <Label renderAs="a" color="@Color.Blue" ribbon="@Ribbon.Left">
+                Community
+            </Label>
+            <span>User Reviews</span>
+            <img src="/images/wireframe/paragraph.png" class="ui image" />
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui segment">
+            <Label renderAs="a" color="@Color.Orange" ribbon="@Ribbon.Right">
+                Specs
+            </Label>
+            <img src="/images/wireframe/paragraph.png" class="ui image" />
+            <Label renderAs="a" color="@Color.Teal" ribbon="@Ribbon.Right">
+                Reviews
+            </Label>
+            <img src="/images/wireframe/paragraph.png" class="ui image" />
+        </div>
+    </div>
+</div>
+
+<div class="ui two column grid">
+    <div class="column">
+        <div class="ui fluid image">
+            <Label color="@Color.Black" ribbon="@Ribbon.Left">
+                <Icon name="@Icon.Hotel" />
+                Hotel
+            </Label>
+            <img src="/images/wireframe/image.png" />
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui fluid image">
+            <Label color="@Color.Blue" ribbon="@Ribbon.Left">
+                <Icon name="@Icon.Spoon" />
+                Food
+            </Label>
+            <img src="/images/wireframe/image.png" />
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<h2>Attached</h2>
+<div class="ui three column grid">
+    <div class="row">
+        <div class="column">
+            <div class="ui padded segment">
+                <Label attached="@Side.Top">HTML</Label>
+                <img src="/images/wireframe/paragraph.png" class="ui image" />
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui padded segment">
+                <Label attached="@Side.Bottom">CSS</Label>
+                <img src="/images/wireframe/paragraph.png" class="ui image" />
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui padded segment">
+                <Label attached="@Side.TopRight">Code</Label>
+                <img src="/images/wireframe/paragraph.png" class="ui image" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="ui padded segment">
+                <Label attached="@Side.TopLeft">View</Label>
+                <img src="/images/wireframe/paragraph.png" class="ui image" />
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui padded segment">
+                <Label attached="@Side.BottomLeft">User View</Label>
+                <img src="/images/wireframe/paragraph.png" class="ui image" />
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui padded segment">
+                <Label attached="@Side.BottomRight">Admin View</Label>
+                <img src="/images/wireframe/paragraph.png" class="ui image" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<h2>Horizontal</h2>
+<div role="list" class="ui divided selection list">
+    <div role="listitem" class="item">
+        <Label color="@Color.Red" horizontal>
+            Fruit
+        </Label>
+        Kumquats
+    </div>
+    <div role="listitem" class="item">
+        <Label color="@Color.Purple" horizontal>
+            Candy
+        </Label>
+        Ice Cream
+    </div>
+    <div role="listitem" class="item">
+        <Label color="@Color.Red" horizontal>
+            Fruit
+        </Label>
+        Orange
+    </div>
+    <div role="listitem" class="item">
+        <Label horizontal>Dog</Label>
+        Poodle
+    </div>
+</div>
+
+
+<br />
+<br />
+
+<h2>Floating</h2>
+<div class="ui compact menu">
+    <a class="item">
+        <i aria-hidden="true" class="mail icon"></i>
+        Messages
+        <Label color="@Color.Red" floating>
+            22
+        </Label>
+    </a>
+    <a class="item">
+        <i aria-hidden="true" class="users icon"></i>
+        Friends
+        <Label color="@Color.Teal" floating>
+            22
+        </Label>
+    </a>
+</div>
+
+<br />
+<br />
