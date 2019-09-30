@@ -1,9 +1,9 @@
 # Build status
 [AzureBuildMaster]: https://dev.azure.com/Daniel127/Semantic%20UI%20Blazor%20Components/_apis/build/status/CI-Release?branchName=master
-[AzureBuildMasterLink]: https://dev.azure.com/Daniel127/Semantic%20UI%20Blazor%20Components/_build/latest?definitionId=6&branchName=master
+[AzureBuildMasterLink]: https://dev.azure.com/Daniel127/Semantic%20UI%20Blazor%20Components/_build/latest?definitionId=8&branchName=master
 
 [AzureBuildDevelop]: https://dev.azure.com/Daniel127/Semantic%20UI%20Blazor%20Components/_apis/build/status/CI-Development?branchName=develop
-[AzureBuildDevelopLink]: https://dev.azure.com/Daniel127/Semantic%20UI%20Blazor%20Components/_build/latest?definitionId=4&branchName=develop
+[AzureBuildDevelopLink]: https://dev.azure.com/Daniel127/Semantic%20UI%20Blazor%20Components/_build/latest?definitionId=7&branchName=develop
 
 [GithubActions]: https://github.com/Daniel127/SemanticUI-Razor-Components/workflows/Github%20CI/badge.svg
 [GithubActionsLink]: https://github.com/Daniel127/SemanticUI-Razor-Components/actions
