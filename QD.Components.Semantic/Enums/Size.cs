@@ -28,6 +28,11 @@ namespace QD.Components.Semantic.Enums
 		[Description("small")]
 		Small,
 		/// <summary>
+		/// Medium size
+		/// </summary>
+		[Description("medium")]
+		Medium,
+		/// <summary>
 		/// Large size
 		/// </summary>
 		[Description("large")]
