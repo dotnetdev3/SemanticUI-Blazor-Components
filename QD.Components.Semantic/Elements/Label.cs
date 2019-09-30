@@ -105,79 +105,145 @@ namespace QD.Components.Semantic.Elements
 		{
 			ElementClass = "ui";
 
-			if (Color != Color.None)
-			{
-				ElementClass = $"{ElementClass} {Color.GetDescription()}";
-			}
+			ConfigureColor();
 
-			if (Image)
-			{
-				ElementClass = $"{ElementClass} image";
-			}
+			ConfigureImage();
 
-			if (Corner != Corner.None)
-			{
-				ElementClass = $"{ElementClass} {Corner.GetDescription()} corner";
-			}
+			ConfigureCorner();
 
-			if (Pointing != Direction.None)
-			{
-				if (Pointing == Direction.Left || Pointing == Direction.Right)
-				{
-					ElementClass = $"{ElementClass} {Pointing.GetDescription()} pointing";
-				}
-				else
-				{
-					ElementClass = $"{ElementClass} pointing {Pointing.GetDescription()}";
-				}
-			}
+			ConfigurePointing();
 
-			if (Attached != Side.None)
-			{
-				ElementClass = $"{ElementClass} {Attached.GetDescription()} attached";
-			}
+			ConfigureAttached();
 
-			if (Prompt)
-			{
-				ElementClass = $"{ElementClass} prompt";
-			}
+			ConfigurePrompt();
 
-			if (Tag)
-			{
-				ElementClass = $"{ElementClass} tag";
-			}
+			ConfigureTag();
 
-			if (Ribbon != Ribbon.None)
-			{
-				ElementClass = Ribbon == Ribbon.Left ? $"{ElementClass} ribbon" : $"{ElementClass} {Ribbon.GetDescription()} ribbon";
-			}
+			ConfigureRibbon();
 
-			if (Size != Size.None)
-			{
-				ElementClass = $"{ElementClass} {Size.GetDescription()}";
-			}
+			ConfigureSize();
 
-			if (Horizontal)
-			{
-				ElementClass = $"{ElementClass} horizontal";
-			}
+			ConfigureHorizontal();
 
-			if (Floating)
-			{
-				ElementClass = $"{ElementClass} floating";
-			}
+			ConfigureFloating();
 
-			if (Circular)
-			{
-				ElementClass = $"{ElementClass} circular";
-			}
+			ConfigureCircular();
 
+			ConfigureBasic();
+
+			ElementClass = $"{ElementClass} label";
+		}
+
+		private void ConfigureBasic()
+		{
 			if (Basic)
 			{
 				ElementClass = $"{ElementClass} basic";
 			}
+		}
 
-			ElementClass = $"{ElementClass} label";
+		private void ConfigureCircular()
+		{
+			if (Circular)
+			{
+				ElementClass = $"{ElementClass} circular";
+			}
+		}
+
+		private void ConfigureFloating()
+		{
+			if (Floating)
+			{
+				ElementClass = $"{ElementClass} floating";
+			}
+		}
+
+		private void ConfigureHorizontal()
+		{
+			if (Horizontal)
+			{
+				ElementClass = $"{ElementClass} horizontal";
+			}
+		}
+
+		private void ConfigureTag()
+		{
+			if (Tag)
+			{
+				ElementClass = $"{ElementClass} tag";
+			}
+		}
+
+		private void ConfigurePrompt()
+		{
+			if (Prompt)
+			{
+				ElementClass = $"{ElementClass} prompt";
+			}
+		}
+
+		private void ConfigureImage()
+		{
+			if (Image)
+			{
+				ElementClass = $"{ElementClass} image";
+			}
+		}
+
+		private void ConfigureSize()
+		{
+			if (Size != Size.None)
+			{
+				ElementClass = $"{ElementClass} {Size.GetDescription()}";
+			}
+		}
+
+		private void ConfigureColor()
+		{
+			if (Color != Color.None)
+			{
+				ElementClass = $"{ElementClass} {Color.GetDescription()}";
+			}
+		}
+
+		private void ConfigureCorner()
+		{
+			if (Corner != Corner.None)
+			{
+				ElementClass = $"{ElementClass} {Corner.GetDescription()} corner";
+			}
+		}
+
+		private void ConfigureAttached()
+		{
+			if (Attached != Side.None)
+			{
+				ElementClass = $"{ElementClass} {Attached.GetDescription()} attached";
+			}
+		}
+
+		private void ConfigureRibbon()
+		{
+			if (Ribbon == Ribbon.None) return;
+			ElementClass = Ribbon == Ribbon.Left
+				? $"{ElementClass} ribbon"
+				: $"{ElementClass} {Ribbon.GetDescription()} ribbon";
+		}
+
+		private void ConfigurePointing()
+		{
+			switch (Pointing)
+			{
+				case Direction.None:
+					return;
+				case Direction.Left:
+				case Direction.Right:
+					ElementClass = $"{ElementClass} {Pointing.GetDescription()} pointing";
+					break;
+				default:
+					ElementClass = $"{ElementClass} pointing {Pointing.GetDescription()}";
+					break;
+			}
 		}
 	}
 }
