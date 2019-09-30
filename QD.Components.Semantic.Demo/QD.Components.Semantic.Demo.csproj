@@ -18,4 +18,8 @@
     <ProjectReference Include="..\QD.Components.Semantic\QD.Components.Semantic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\avatar\small\" />
+  </ItemGroup>
+
 </Project>
