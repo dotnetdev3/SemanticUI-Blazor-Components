@@ -152,6 +152,11 @@ namespace QD.Components.Semantic.Elements
 				ElementClass = Ribbon == Ribbon.Left ? $"{ElementClass} ribbon" : $"{ElementClass} {Ribbon.GetDescription()} ribbon";
 			}
 
+			if (Size != Size.None)
+			{
+				ElementClass = $"{ElementClass} {Size.GetDescription()}";
+			}
+
 			if (Horizontal)
 			{
 				ElementClass = $"{ElementClass} horizontal";
@@ -160,6 +165,11 @@ namespace QD.Components.Semantic.Elements
 			if (Floating)
 			{
 				ElementClass = $"{ElementClass} floating";
+			}
+
+			if (Circular)
+			{
+				ElementClass = $"{ElementClass} circular";
 			}
 
 			if (Basic)
