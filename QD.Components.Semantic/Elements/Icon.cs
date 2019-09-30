@@ -162,7 +162,7 @@ namespace QD.Components.Semantic.Elements
 			}
 
 
-			if (Size != Size.None)
+			if (Size != Size.None && Size != Size.Medium)
 			{
 				options = $"{options}{Size.GetDescription()} ";
 			}
