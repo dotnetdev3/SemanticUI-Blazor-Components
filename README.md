@@ -88,7 +88,7 @@ dotnet add package QD.Components.Semantic
 - [ ] Image
 - [ ] Input
 - [ ] List
-- [ ] Label
+- [X] Label
 - [ ] Loader
 - [ ] Placeholder
 - [ ] Reveal
