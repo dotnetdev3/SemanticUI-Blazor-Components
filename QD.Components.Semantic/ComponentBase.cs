@@ -16,13 +16,13 @@ namespace QD.Components.Semantic
 		/// An element type to render as.
 		/// </summary>
 		[Parameter]
-		public string RenderAs { get; set; }
+		public string As { get; set; }
 
 		/// <summary>
 		/// An element component to render as.
 		/// </summary>
 		[Parameter]
-		public Type RenderAsComponent { get; set; }
+		public Type AsComponent { get; set; }
 
 		/// <summary>
 		/// Child content
@@ -76,13 +76,13 @@ namespace QD.Components.Semantic
 
 			_componentRenderer = builder =>
 			{
-				if (RenderAsComponent != null)
+				if (AsComponent != null)
 				{
 					if (!ElementAttributes.ContainsKey(nameof(ChildContent)))
 					{
 						ElementAttributes.Add(nameof(ChildContent), ChildContent);
 					}
-					builder.OpenComponent(0, RenderAsComponent);
+					builder.OpenComponent(0, AsComponent);
 					builder.AddMultipleAttributes(1, ElementAttributes);
 					builder.AddMultipleAttributes(2, InputAttributes);
 					builder.CloseComponent();
@@ -93,7 +93,7 @@ namespace QD.Components.Semantic
 					{
 						ElementAttributes.Add("Class", ElementClass);
 					}
-					builder.OpenElement(0, string.IsNullOrWhiteSpace(RenderAs) ? ElementTag : RenderAs);
+					builder.OpenElement(0, string.IsNullOrWhiteSpace(As) ? ElementTag : As);
 					builder.AddMultipleAttributes(1, ElementAttributes);
 					builder.AddContent(2, ChildContent);
 					builder.CloseElement();
@@ -106,7 +106,7 @@ namespace QD.Components.Semantic
 		public override async Task SetParametersAsync(ParameterView parameters)
 		{
 			await base.SetParametersAsync(parameters);
-			if (RenderAsComponent == null && InputAttributes != null)
+			if (AsComponent == null && InputAttributes != null)
 			{
 				foreach (KeyValuePair<string, object> attribute in InputAttributes)
 				{
