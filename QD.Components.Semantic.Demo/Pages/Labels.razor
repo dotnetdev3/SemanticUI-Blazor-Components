@@ -14,15 +14,15 @@
 <br />
 
 <div>
-    <Label renderAs="a" image>
+    <Label as="a" image>
         <img src="/images/avatar/small/joe.jpg" alt="Joe" />
         Joe
     </Label>
-    <Label renderAs="a" image>
+    <Label as="a" image>
         <img src="/images/avatar/small/elliot.jpg" alt="Elliot" />
         Elliot
     </Label>
-    <Label renderAs="a" image>
+    <Label as="a" image>
         <img src="/images/avatar/small/stevie.jpg" alt="Stevie" />
         Stevie
     </Label>
@@ -31,17 +31,17 @@
 <br />
 
 <div>
-    <Label renderAs="a" color="@Color.Blue" image>
+    <Label as="a" color="@Color.Blue" image>
         <img src="/images/avatar/small/veronika.jpg" alt="Veronika" />
         Veronika
         <LabelDetail>Friend</LabelDetail>
     </Label>
-    <Label renderAs="a" color="@Color.Teal" image>
+    <Label as="a" color="@Color.Teal" image>
         <img src="/images/avatar/small/jenny.jpg" alt="Jenny" />
         Jenny
         <LabelDetail>Friend</LabelDetail>
     </Label>
-    <Label renderAs="a" color="@Color.Yellow" image>
+    <Label as="a" color="@Color.Yellow" image>
         <img src="/images/avatar/small/christian.jpg" alt="Christian" />
         Christian
         <LabelDetail>Co-worker</LabelDetail>
@@ -143,7 +143,7 @@
 <div class="ui two column grid">
     <div class="column">
         <div class="ui fluid image">
-            <Label renderAs="a" corner="@Corner.Left">
+            <Label as="a" corner="@Corner.Left">
                 <Icon name="@Icon.Heart" />
             </Label>
             <img src="/images/wireframe/image.png" alt="Placeholder" />
@@ -151,7 +151,7 @@
     </div>
     <div class="column">
         <div class="ui fluid image">
-            <Label renderAs="a" corner="@Corner.Right" color="@Color.Red">
+            <Label as="a" corner="@Corner.Right" color="@Color.Red">
                 <Icon name="@Icon.Save" />
             </Label>
             <img src="/images/wireframe/image.png" alt="Placeholder" />
@@ -164,13 +164,13 @@
 
 <h2>Tag</h2>
 <div>
-    <Label renderAs="a" tag>
+    <Label as="a" tag>
         New
     </Label>
-    <Label renderAs="a" color="@Color.Red" tag>
+    <Label as="a" color="@Color.Red" tag>
         Upcoming
     </Label>
-    <Label renderAs="a" color="@Color.Teal" tag>
+    <Label as="a" color="@Color.Teal" tag>
         Featured
     </Label>
 </div>
@@ -182,12 +182,12 @@
 <div class="ui two column grid">
     <div class="column">
         <div class="ui raised segment">
-            <Label renderAs="a" color="@Color.Red" ribbon="@Ribbon.Left">
+            <Label as="a" color="@Color.Red" ribbon="@Ribbon.Left">
                 Overview
             </Label>
             <span>Account Details</span>
             <img src="/images/wireframe/paragraph.png" class="ui image" alt="Placeholder" />
-            <Label renderAs="a" color="@Color.Blue" ribbon="@Ribbon.Left">
+            <Label as="a" color="@Color.Blue" ribbon="@Ribbon.Left">
                 Community
             </Label>
             <span>User Reviews</span>
@@ -196,11 +196,11 @@
     </div>
     <div class="column">
         <div class="ui segment">
-            <Label renderAs="a" color="@Color.Orange" ribbon="@Ribbon.Right">
+            <Label as="a" color="@Color.Orange" ribbon="@Ribbon.Right">
                 Specs
             </Label>
             <img src="/images/wireframe/paragraph.png" class="ui image" alt="Placeholder" />
-            <Label renderAs="a" color="@Color.Teal" ribbon="@Ribbon.Right">
+            <Label as="a" color="@Color.Teal" ribbon="@Ribbon.Right">
                 Reviews
             </Label>
             <img src="/images/wireframe/paragraph.png" class="ui image" alt="Placeholder" />
@@ -339,11 +339,11 @@
 
 <h2>Icon</h2>
 <div>
-    <Label renderAs="a">
+    <Label as="a">
         <Icon name="@Icon.Mail" />
         Mail
     </Label>
-    <Label renderAs="a">
+    <Label as="a">
         Tag
         <Icon name="@Icon.Delete" />
     </Label>
@@ -352,18 +352,18 @@
 
 <h2>Image</h2>
 <div>
-    <Label renderAs="a">
+    <Label as="a">
         <img src="/images/avatar/small/elliot.jpg" class="ui avatar right spaced image" alt="Elliot" />
         Elliot
     </Label>
-    <Label renderAs="a">
+    <Label as="a">
         <img src="/images/avatar/small/stevie.jpg" alt="Stevie" />
         Stevie
     </Label>
 </div>
 
 <h2>Link</h2>
-<Label renderAs="a">
+<Label as="a">
     <Icon name="@Icon.Mail" /> 23
 </Label>
 
@@ -401,20 +401,20 @@
 
 <h2>Basic</h2>
 <div>
-    <Label renderAs="a" basic>
+    <Label as="a" basic>
         Basic
     </Label>
-    <Label renderAs="a" basic pointing="@Direction.Above">
+    <Label as="a" basic pointing="@Direction.Above">
         Pointing
     </Label>
-    <Label renderAs="a" basic image>
+    <Label as="a" basic image>
         <img src="/images/avatar/small/elliot.jpg" alt="Elliot" />
         Elliot
     </Label>
-    <Label renderAs="a" basic color="@Color.Red" pointing="@Direction.Above">
+    <Label as="a" basic color="@Color.Red" pointing="@Direction.Above">
         Red Pointing
     </Label>
-    <Label renderAs="a" basic color="@Color.Blue">
+    <Label as="a" basic color="@Color.Blue">
         Blue
     </Label>
 </div>
@@ -471,17 +471,17 @@
 
 <h2>Colored Group</h2>
 <LabelGroup color="@Color.Blue">
-    <Label renderAs="a">
+    <Label as="a">
         Fun
         <Icon name="@Icon.Close" />
     </Label>
-    <Label renderAs="a">
+    <Label as="a">
         Happy
         <LabelDetail>22</LabelDetail>
     </Label>
-    <Label renderAs="a">Smart</Label>
-    <Label renderAs="a">Insane</Label>
-    <Label renderAs="a">Exciting</Label>
+    <Label as="a">Smart</Label>
+    <Label as="a">Insane</Label>
+    <Label as="a">Exciting</Label>
 </LabelGroup>
 
 <br />
@@ -489,22 +489,22 @@
 
 <h2>Tag Group</h2>
 <LabelGroup tag>
-    <Label renderAs="a">$10.00</Label>
-    <Label renderAs="a">$19.99</Label>
-    <Label renderAs="a">$24.99</Label>
-    <Label renderAs="a">$30.99</Label>
-    <Label renderAs="a">$10.25</Label>
+    <Label as="a">$10.00</Label>
+    <Label as="a">$19.99</Label>
+    <Label as="a">$24.99</Label>
+    <Label as="a">$30.99</Label>
+    <Label as="a">$10.25</Label>
 </LabelGroup>
 <br />
 <br />
 
 <h2>Circular Group</h2>
 <LabelGroup circular>
-    <Label renderAs="a">11</Label>
-    <Label renderAs="a">22</Label>
-    <Label renderAs="a">33</Label>
-    <Label renderAs="a">44</Label>
-    <Label renderAs="a">141</Label>
+    <Label as="a">11</Label>
+    <Label as="a">22</Label>
+    <Label as="a">33</Label>
+    <Label as="a">44</Label>
+    <Label as="a">141</Label>
 </LabelGroup>
 
 <br />

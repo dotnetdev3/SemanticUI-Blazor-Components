@@ -81,14 +81,14 @@ dotnet add package QD.Components.Semantic
 ## Elements
 - [ ] Button
 - [X] Container
-- [ ] Divider
+- [X] Divider
 - [X] Flag
 - [X] Icon
 - [ ] Header
 - [ ] Image
 - [ ] Input
 - [ ] List
-- [ ] Label
+- [X] Label
 - [ ] Loader
 - [ ] Placeholder
 - [ ] Reveal
