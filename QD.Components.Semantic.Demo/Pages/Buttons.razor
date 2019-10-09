@@ -1,26 +1,74 @@
 ﻿@page "/buttons"
-@using QD.Components.Semantic.Enums
 @using QD.Components.Semantic.Enums.Button
+@using QD.Components.Semantic.Enums.Label
+@using Icon = QD.Components.Semantic.Enums.Elements.Icon
+
+@code
+{
+
+    int Counter { get; set; }
+    void Click()
+    {
+        Counter++;
+    }
+
+}
 
 <h1>Buttons</h1>
 
+<Label>
+    Clicks: @Counter
+</Label>
+
 <h2>Normal Button</h2>
-<Button>Click on me</Button>
+<Button @onclick="@Click">Click on me</Button>
 
 <h2>Primary/Secondary Button</h2>
-<Button primary>Primary</Button>
-<Button secondary>Secondary</Button>
+<Button @onclick="@Click" primary>Primary</Button>
+<Button @onclick="@Click" secondary>Secondary</Button>
 
 <h2>Animated Button</h2>
-<Button animated="@Animation.Horizontal">
+<Button animated="@Animation.Horizontal" @onclick="@Click">
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
-<Button animated="@Animation.Vertical" primary>
+<Button animated="@Animation.Vertical" @onclick="@Click" primary>
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
-<Button animated="@Animation.Fade" secondary>
+<Button animated="@Animation.Fade" @onclick="@Click" secondary>
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
+
+
+<h2>Labeled</h2>
+
+<div>
+    <Button as="div" labelPosition="@Position.Right">
+        <Button icon>
+            <Icon name="@Icon.Heart" />
+            Like
+        </Button>
+        <Label as="a" basic pointing="@Direction.Left">
+            2,048
+        </Label>
+    </Button>   
+    <Button as="div" labelPosition="@Position.Left">
+        <Label as="a" basic pointing="@Direction.Right">
+            2,048
+        </Label>
+        <Button icon>
+            <Icon name="@Icon.Heart" />
+            Like
+        </Button>
+    </Button>
+    <Button as="div" labelPosition="@Position.Left">
+        <Label as="a" basic>
+            2,048
+        </Label>
+        <Button icon>
+            <Icon name="@Icon.Fork" />
+        </Button>
+    </Button>
+</div>
