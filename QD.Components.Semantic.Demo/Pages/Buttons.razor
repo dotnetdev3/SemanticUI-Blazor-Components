@@ -45,7 +45,7 @@
 <h2>Labeled</h2>
 
 <div>
-    <Button as="div" labelPosition="@Position.Right">
+    <Button as="div" labelPosition="@Position.Right" @onclick="@Click">
         <Button icon>
             <Icon name="@Icon.Heart" />
             Like
@@ -54,7 +54,7 @@
             2,048
         </Label>
     </Button>   
-    <Button as="div" labelPosition="@Position.Left">
+    <Button as="div" labelPosition="@Position.Left" @onclick="@Click">
         <Label as="a" basic pointing="@Direction.Right">
             2,048
         </Label>
@@ -63,7 +63,7 @@
             Like
         </Button>
     </Button>
-    <Button as="div" labelPosition="@Position.Left">
+    <Button as="div" labelPosition="@Position.Left" @onclick="@Click">
         <Label as="a" basic>
             2,048
         </Label>
@@ -71,4 +71,180 @@
             <Icon name="@Icon.Fork" />
         </Button>
     </Button>
+</div>
+<br/>
+<div>
+    <Button as="div" labelPosition="@Position.Right" @onclick="@Click">
+        <Button color="@Color.Red">
+            <Icon name="@Icon.Heart" />
+            Like
+        </Button>
+        <Label as="a" basic color="@Color.Red" pointing="@Direction.Left">
+            2,048
+        </Label>
+    </Button>
+    <Button as="div" labelPosition="@Position.Right" @onclick="@Click">
+        <Button basic color="@Color.Blue">
+            <Icon name="@Icon.Fork" />
+            Fork
+        </Button>
+        <Label as="a" basic color="@Color.Blue" pointing="@Direction.Left">
+            2,048
+        </Label>
+    </Button>
+</div>
+
+<h2>Icon</h2>
+
+<Button icon @onclick="@Click">
+    <Icon name="@Icon.World" />
+</Button>
+
+<h2>Labeled Icon</h2>
+<div>
+    <Button icon labelPosition="@Position.Left" @onclick="@Click">
+        <Icon name="@Icon.Pause" />
+        Pause
+    </Button>
+    <Button icon labelPosition="@Position.Right" @onclick="@Click">
+        Next
+        <Icon name="@Icon.ArrowRight" />
+    </Button>
+</div>
+
+<h2>Basic</h2>
+<div>
+    <Button basic>Standard</Button>
+    <Button basic color="red">
+        Red
+    </Button>
+    <Button basic color="@Color.Orange" @onclick="@Click">
+        Orange
+    </Button>
+    <Button basic color="@Color.Yellow" @onclick="@Click">
+        Yellow
+    </Button>
+    <Button basic color="@Color.Olive" @onclick="@Click">
+        Olive
+    </Button>
+    <Button basic color="@Color.Green" @onclick="@Click">
+        Green
+    </Button>
+    <Button basic color="@Color.Teal" @onclick="@Click">
+        Teal
+    </Button>
+    <Button basic color="@Color.Blue" @onclick="@Click">
+        Blue
+    </Button>
+    <Button basic color="@Color.Violet" @onclick="@Click">
+        Violet
+    </Button>
+    <Button basic color="@Color.Purple" @onclick="@Click">
+        Purple
+    </Button>
+    <Button basic color="@Color.Pink" @onclick="@Click">
+        Pink
+    </Button>
+    <Button basic color="@Color.Brown" @onclick="@Click">
+        Brown
+    </Button>
+    <Button basic color="@Color.Grey" @onclick="@Click">
+        Grey
+    </Button>
+    <Button basic color="@Color.Black" @onclick="@Click">
+        Black
+    </Button>
+</div>
+
+<h2>Inverted</h2>
+
+<div>
+    <div class="ui inverted segment">
+        <Button inverted>
+            Standard
+        </Button>
+        <Button inverted color="@Color.Red">
+            Red
+        </Button>
+        <Button inverted color="@Color.Orange">
+            Orange
+        </Button>
+        <Button inverted color="@Color.Yellow">
+            Yellow
+        </Button>
+        <Button inverted color="@Color.Olive">
+            Olive
+        </Button>
+        <Button inverted color="@Color.Green">
+            Green
+        </Button>
+        <Button inverted color="@Color.Teal">
+            Teal
+        </Button>
+        <Button inverted color="@Color.Blue">
+            Blue
+        </Button>
+        <Button inverted color="@Color.Violet">
+            Violet
+        </Button>
+        <Button inverted color="@Color.Purple">
+            Purple
+        </Button>
+        <Button inverted color="@Color.Pink">
+            Pink
+        </Button>
+        <Button inverted color="@Color.Brown">
+            Brown
+        </Button>
+        <Button inverted color="@Color.Grey">
+            Grey
+        </Button>
+        <Button inverted color="@Color.Black">
+            Black
+        </Button>
+    </div>
+    <div class="ui inverted segment">
+        <Button basic inverted>
+            Standard
+        </Button>
+        <Button basic inverted color="@Color.Red">
+            Red
+        </Button>
+        <Button basic inverted color="@Color.Orange">
+            Orange
+        </Button>
+        <Button basic inverted color="@Color.Yellow">
+            Yellow
+        </Button>
+        <Button basic inverted color="@Color.Olive">
+            Olive
+        </Button>
+        <Button basic inverted color="@Color.Green">
+            Green
+        </Button>
+        <Button basic inverted color="@Color.Teal">
+            Teal
+        </Button>
+        <Button basic inverted color="@Color.Blue">
+            Blue
+        </Button>
+        <Button basic inverted color="@Color.Violet">
+            Violet
+        </Button>
+        <Button basic inverted color="@Color.Purple">
+            Purple
+        </Button>
+        <Button basic inverted color="@Color.Pink">
+            Pink
+        </Button>
+        <Button basic inverted color="@Color.Brown">
+            Brown
+        </Button>
+        <Button basic inverted color="@Color.Grey">
+            Grey
+        </Button>
+        <Button basic inverted color="@Color.Black">
+            Black
+        </Button>
+    </div>
 </div>
