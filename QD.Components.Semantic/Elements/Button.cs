@@ -171,6 +171,11 @@ namespace QD.Components.Semantic.Elements
 				ElementClass = $"{ElementClass} {LabelPosition.GetDescription()} labeled";
 			}
 
+			if (Color != Color.None)
+			{
+				ElementClass = $"{ElementClass} {Color.GetDescription()}";
+			}
+
 			if (Primary)
 			{
 				ElementClass = $"{ElementClass} primary";
@@ -183,6 +188,16 @@ namespace QD.Components.Semantic.Elements
 			if (Icon)
 			{
 				ElementClass = $"{ElementClass} icon";
+			}
+
+			if (Basic)
+			{
+				ElementClass = $"{ElementClass} basic";
+			}
+
+			if (Inverted)
+			{
+				ElementClass = $"{ElementClass} inverted";
 			}
 
 			ElementClass = $"{ElementClass} button";
