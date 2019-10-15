@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 
-namespace QD.Components.Semantic.Enums.Button
+namespace QD.Components.Semantic.Enums
 {
 	/// <summary>
-	/// Position
+	/// Vertical position
 	/// </summary>
-	public enum Position
+	public enum VerticalPosition
 	{
 		/// <summary>
 		/// None
@@ -13,14 +13,14 @@ namespace QD.Components.Semantic.Enums.Button
 		[Description("none")]
 		None,
 		/// <summary>
-		/// Left position
+		/// Top Position
 		/// </summary>
-		[Description("left")]
-		Left,
+		[Description("top")]
+		Top,
 		/// <summary>
-		/// Right position
+		/// Bottom position
 		/// </summary>
-		[Description("right")]
-		Right
+		[Description("bottom")]
+		Bottom,
 	}
 }

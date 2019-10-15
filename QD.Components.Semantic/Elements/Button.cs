@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using QD.Components.Semantic.Enums;
 using QD.Components.Semantic.Enums.Button;
-using QD.Components.Semantic.Enums.Label;
 using Color = QD.Components.Semantic.Enums.Button.Color;
+using HorizontalPosition = QD.Components.Semantic.Enums.HorizontalPosition;
 
 namespace QD.Components.Semantic.Elements
 {
@@ -12,6 +12,12 @@ namespace QD.Components.Semantic.Elements
 	/// </summary>
 	public class Button : ComponentBase
 	{
+		/// <summary>
+		/// A button can show it is currently the active user selection.
+		/// </summary>
+		[Parameter]
+		public bool Active { get; set; }
+
 		/// <summary>
 		/// A button can animate to show hidden content.
 		/// </summary>
@@ -22,7 +28,7 @@ namespace QD.Components.Semantic.Elements
 		/// A button can be attached to other content.
 		/// </summary>
 		[Parameter]
-		public Side Attached { get; set; }
+		public Position Attached { get; set; }
 
 		/// <summary>
 		/// A basic button is less pronounced.
@@ -58,7 +64,7 @@ namespace QD.Components.Semantic.Elements
 		/// A button can be aligned to the left or right of its container.
 		/// </summary>
 		[Parameter]
-		public Position Floated { get; set; }
+		public HorizontalPosition Floated { get; set; }
 
 		/// <summary>
 		/// A button can take the width of its container.
@@ -88,7 +94,7 @@ namespace QD.Components.Semantic.Elements
 		/// A labeled button can format a Label or Icon to appear on the left or right.
 		/// </summary>
 		[Parameter]
-		public Position LabelPosition { get; set; }
+		public HorizontalPosition LabelPosition { get; set; }
 
 		/// <summary>
 		/// A button can show a loading indicator.
@@ -142,7 +148,7 @@ namespace QD.Components.Semantic.Elements
 		/// A button can receive focus.
 		/// </summary>
 		[Parameter]
-		public int TabIndex { get; set; }
+		public int? TabIndex { get; set; }
 
 		/// <summary>
 		/// A button can be formatted to toggle on and off.
@@ -150,12 +156,243 @@ namespace QD.Components.Semantic.Elements
 		[Parameter]
 		public bool Toggle { get; set; }
 
+		/// <summary>
+		/// Groups can have their widths divided evenly.
+		/// </summary>
+		[Parameter]
+		public Width Widths { get; set; }
+
 		/// <inheritdoc />
 		protected override void ConfigureComponent()
 		{
 			ElementTag = "button";
 			ElementClass = "ui";
 
+			ConfigureAnimation();
+
+			ConfigureSize();
+
+			ConfigureAttached();
+
+			ConfigureTabIndex();
+
+			ConfigureRole();
+
+			ConfigureFloated();
+
+			ConfigureLabelPosition();
+
+			ConfigureColor();
+
+			ConfigureBasic();
+
+			ConfigureCompact();
+
+			ConfigureActive();
+
+			ConfigureToggle();
+
+			ConfigureCircular();
+
+			ConfigureLoading();
+
+			ConfigureEmphasis();
+
+			ConfigureIcon();
+
+			ConfigurePositive();
+
+			ConfigureNegative();
+
+			ConfigureFluid();
+
+			ConfigureDisabled();
+
+			ConfigureInverted();
+
+			ElementClass = $"{ElementClass} button";
+
+			if (!ElementAttributes.ContainsKey("onclick"))
+			{
+				ElementAttributes.Add("onclick", OnClick);
+			}
+		}
+
+		private void ConfigureInverted()
+		{
+			if (Inverted)
+			{
+				ElementClass = $"{ElementClass} inverted";
+			}
+		}
+
+		private void ConfigureDisabled()
+		{
+			if (Disabled)
+			{
+				ElementClass = $"{ElementClass} disabled";
+			}
+		}
+
+		private void ConfigureFluid()
+		{
+			if (Fluid)
+			{
+				ElementClass = $"{ElementClass} fluid";
+			}
+		}
+
+		private void ConfigureNegative()
+		{
+			if (Negative)
+			{
+				ElementClass = $"{ElementClass} negative";
+			}
+		}
+
+		private void ConfigurePositive()
+		{
+			if (Positive)
+			{
+				ElementClass = $"{ElementClass} positive";
+			}
+		}
+
+		private void ConfigureIcon()
+		{
+			if (Icon)
+			{
+				ElementClass = $"{ElementClass} icon";
+			}
+		}
+
+		private void ConfigureEmphasis()
+		{
+			if (Primary)
+			{
+				ElementClass = $"{ElementClass} primary";
+			}
+			else if (Secondary)
+			{
+				ElementClass = $"{ElementClass} secondary";
+			}
+		}
+
+		private void ConfigureLoading()
+		{
+			if (Loading)
+			{
+				ElementClass = $"{ElementClass} loading";
+			}
+		}
+
+		private void ConfigureCircular()
+		{
+			if (Circular)
+			{
+				ElementClass = $"{ElementClass} circular";
+			}
+		}
+
+		private void ConfigureToggle()
+		{
+			if (Toggle)
+			{
+				ElementClass = $"{ElementClass} toggle";
+				if (!ElementAttributes.ContainsKey("aria-pressed"))
+				{
+					ElementAttributes.Add("aria-pressed", $"{Toggle}".ToLowerInvariant());
+				}
+			}
+			else
+			{
+				if (ElementAttributes.ContainsKey("aria-pressed"))
+				{
+					ElementAttributes["aria-pressed"] = Toggle.ToString().ToLowerInvariant();
+				}
+			}
+		}
+
+		private void ConfigureActive()
+		{
+			if (Active)
+			{
+				ElementClass = $"{ElementClass} active";
+			}
+		}
+
+		private void ConfigureCompact()
+		{
+			if (Compact)
+			{
+				ElementClass = $"{ElementClass} compact";
+			}
+		}
+
+		private void ConfigureBasic()
+		{
+			if (Basic)
+			{
+				ElementClass = $"{ElementClass} basic";
+			}
+		}
+
+		private void ConfigureColor()
+		{
+			if (Color != Color.None)
+			{
+				ElementClass = $"{ElementClass} {Color.GetDescription()}";
+			}
+		}
+
+		private void ConfigureLabelPosition()
+		{
+			if (LabelPosition != HorizontalPosition.None)
+			{
+				ElementClass = $"{ElementClass} {LabelPosition.GetDescription()} labeled";
+			}
+		}
+
+		private void ConfigureFloated()
+		{
+			if (Floated != HorizontalPosition.None)
+			{
+				ElementClass = $"{ElementClass} {Floated.GetDescription()} floated";
+			}
+		}
+
+		private void ConfigureRole()
+		{
+			if (!string.IsNullOrWhiteSpace(Role))
+			{
+				if (!ElementAttributes.ContainsKey("role"))
+				{
+					ElementAttributes.Add("role", Role);
+				}
+			}
+		}
+
+		private void ConfigureAttached()
+		{
+			if (Attached != Position.None)
+			{
+				ElementTag = "div";
+				Role = "button";
+				ElementClass = $"{ElementClass} {Attached.GetDescription()} attached";
+				TabIndex = 0;
+			}
+		}
+
+		private void ConfigureSize()
+		{
+			if (Size != Size.None)
+			{
+				ElementClass = $"{ElementClass} {Size.GetDescription()}";
+			}
+		}
+
+		private void ConfigureAnimation()
+		{
 			if (Animated != Animation.None)
 			{
 				if (Animated != Animation.Horizontal)
@@ -165,44 +402,35 @@ namespace QD.Components.Semantic.Elements
 
 				ElementClass = $"{ElementClass} animated";
 			}
+		}
 
-			if (LabelPosition != Position.None)
+		private void ConfigureTabIndex()
+		{
+			const string tabIndexKey = "tabindex";
+
+			if (ElementTag == "button") return;
+
+			if (!ElementAttributes.ContainsKey(tabIndexKey))
 			{
-				ElementClass = $"{ElementClass} {LabelPosition.GetDescription()} labeled";
+				ElementAttributes.Add(tabIndexKey, 0);
 			}
 
-			if (Color != Color.None)
+			if (TabIndex.HasValue)
 			{
-				ElementClass = $"{ElementClass} {Color.GetDescription()}";
+				ElementAttributes[tabIndexKey] = TabIndex.Value;
+				return;
 			}
 
-			if (Primary)
+			if (Disabled)
 			{
-				ElementClass = $"{ElementClass} primary";
-			}
-			else if (Secondary)
-			{
-				ElementClass = $"{ElementClass} secondary";
+				ElementAttributes[tabIndexKey] = -1;
+				return;
 			}
 
-			if (Icon)
+			if (ElementTag == "div")
 			{
-				ElementClass = $"{ElementClass} icon";
+				ElementAttributes[tabIndexKey] = 0;
 			}
-
-			if (Basic)
-			{
-				ElementClass = $"{ElementClass} basic";
-			}
-
-			if (Inverted)
-			{
-				ElementClass = $"{ElementClass} inverted";
-			}
-
-			ElementClass = $"{ElementClass} button";
-
-			ElementAttributes.Add("onclick", OnClick);
 		}
 	}
 }
