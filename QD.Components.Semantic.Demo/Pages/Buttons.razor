@@ -1,26 +1,641 @@
 ﻿@page "/buttons"
 @using QD.Components.Semantic.Enums
 @using QD.Components.Semantic.Enums.Button
+@using QD.Components.Semantic.Enums.Label
+@using Color = QD.Components.Semantic.Enums.Color
+@using ButtonColor = QD.Components.Semantic.Enums.Button.Color
+@using Icon = QD.Components.Semantic.Enums.Elements.Icon
+
+@code
+{
+
+    int Counter { get; set; }
+    void Click()
+    {
+        Counter++;
+    }
+
+}
 
 <h1>Buttons</h1>
 
+
+<Label>
+    Clicks: @Counter
+</Label>
+
 <h2>Normal Button</h2>
-<Button>Click on me</Button>
+<Button @onclick="@Click">Click on me</Button>
 
 <h2>Primary/Secondary Button</h2>
-<Button primary>Primary</Button>
-<Button secondary>Secondary</Button>
+<Button @onclick="@Click" primary>Primary</Button>
+<Button @onclick="@Click" secondary>Secondary</Button>
 
 <h2>Animated Button</h2>
-<Button animated="@Animation.Horizontal">
+<Button animated="@Animation.Horizontal" @onclick="@Click">
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
-<Button animated="@Animation.Vertical" primary>
+<Button animated="@Animation.Vertical" @onclick="@Click" primary>
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
-<Button animated="@Animation.Fade" secondary>
+<Button animated="@Animation.Fade" @onclick="@Click" secondary>
     <ButtonContent visible>1</ButtonContent>
     <ButtonContent hidden>2</ButtonContent>
 </Button>
+
+
+<h2>Labeled</h2>
+
+<div>
+    <Button as="div" labelPosition="@HorizontalPosition.Right" @onclick="@Click">
+        <Button icon>
+            <Icon name="@Icon.Heart" />
+            Like
+        </Button>
+        <Label as="a" basic pointing="@Direction.Left">
+            2,048
+        </Label>
+    </Button>
+    <Button as="div" labelPosition="@HorizontalPosition.Left" @onclick="@Click">
+        <Label as="a" basic pointing="@Direction.Right">
+            2,048
+        </Label>
+        <Button icon>
+            <Icon name="@Icon.Heart" />
+            Like
+        </Button>
+    </Button>
+    <Button as="div" labelPosition="@HorizontalPosition.Left" @onclick="@Click">
+        <Label as="a" basic>
+            2,048
+        </Label>
+        <Button icon>
+            <Icon name="@Icon.Fork" />
+        </Button>
+    </Button>
+</div>
+<br />
+<div>
+    <Button as="div" labelPosition="@HorizontalPosition.Right" @onclick="@Click">
+        <Button color="@ButtonColor.Red">
+            <Icon name="@Icon.Heart" />
+            Like
+        </Button>
+        <Label as="a" basic color="@Color.Red" pointing="@Direction.Left">
+            2,048
+        </Label>
+    </Button>
+    <Button as="div" labelPosition="@HorizontalPosition.Right" @onclick="@Click">
+        <Button basic color="@ButtonColor.Blue">
+            <Icon name="@Icon.Fork" />
+            Fork
+        </Button>
+        <Label as="a" basic color="@Color.Blue" pointing="@Direction.Left">
+            2,048
+        </Label>
+    </Button>
+</div>
+
+<h2>Icon</h2>
+
+<Button icon @onclick="@Click">
+    <Icon name="@Icon.World" />
+</Button>
+
+<h2>Labeled Icon</h2>
+<div>
+    <Button icon labelPosition="@HorizontalPosition.Left" @onclick="@Click">
+        <Icon name="@Icon.Pause" />
+        Pause
+    </Button>
+    <Button icon labelPosition="@HorizontalPosition.Right" @onclick="@Click">
+        Next
+        <Icon name="@Icon.ArrowRight" />
+    </Button>
+</div>
+
+<h2>Basic</h2>
+<div>
+    <Button basic>
+        Standard
+    </Button>
+    <Button basic color="@ButtonColor.Red">
+        Red
+    </Button>
+    <Button basic color="@ButtonColor.Orange" @onclick="@Click">
+        Orange
+    </Button>
+    <Button basic color="@ButtonColor.Yellow" @onclick="@Click">
+        Yellow
+    </Button>
+    <Button basic color="@ButtonColor.Olive" @onclick="@Click">
+        Olive
+    </Button>
+    <Button basic color="@ButtonColor.Green" @onclick="@Click">
+        Green
+    </Button>
+    <Button basic color="@ButtonColor.Teal" @onclick="@Click">
+        Teal
+    </Button>
+    <Button basic color="@ButtonColor.Blue" @onclick="@Click">
+        Blue
+    </Button>
+    <Button basic color="@ButtonColor.Violet" @onclick="@Click">
+        Violet
+    </Button>
+    <Button basic color="@ButtonColor.Purple" @onclick="@Click">
+        Purple
+    </Button>
+    <Button basic color="@ButtonColor.Pink" @onclick="@Click">
+        Pink
+    </Button>
+    <Button basic color="@ButtonColor.Brown" @onclick="@Click">
+        Brown
+    </Button>
+    <Button basic color="@ButtonColor.Grey" @onclick="@Click">
+        Grey
+    </Button>
+    <Button basic color="@ButtonColor.Black" @onclick="@Click">
+        Black
+    </Button>
+</div>
+
+<h2>Inverted</h2>
+
+<div>
+    <div class="ui inverted segment">
+        <Button inverted>
+            Standard
+        </Button>
+        <Button inverted color="@ButtonColor.Red" @onclick="@Click">
+            Red
+        </Button>
+        <Button inverted color="@ButtonColor.Orange" @onclick="@Click">
+            Orange
+        </Button>
+        <Button inverted color="@ButtonColor.Yellow" @onclick="@Click">
+            Yellow
+        </Button>
+        <Button inverted color="@ButtonColor.Olive" @onclick="@Click">
+            Olive
+        </Button>
+        <Button inverted color="@ButtonColor.Green" @onclick="@Click">
+            Green
+        </Button>
+        <Button inverted color="@ButtonColor.Teal" @onclick="@Click">
+            Teal
+        </Button>
+        <Button inverted color="@ButtonColor.Blue" @onclick="@Click">
+            Blue
+        </Button>
+        <Button inverted color="@ButtonColor.Violet" @onclick="@Click">
+            Violet
+        </Button>
+        <Button inverted color="@ButtonColor.Purple" @onclick="@Click">
+            Purple
+        </Button>
+        <Button inverted color="@ButtonColor.Pink" @onclick="@Click">
+            Pink
+        </Button>
+        <Button inverted color="@ButtonColor.Brown" @onclick="@Click">
+            Brown
+        </Button>
+        <Button inverted color="@ButtonColor.Grey" @onclick="@Click">
+            Grey
+        </Button>
+        <Button inverted color="@ButtonColor.Black" @onclick="@Click">
+            Black
+        </Button>
+    </div>
+    <div class="ui inverted segment">
+        <Button basic inverted>
+            Standard
+        </Button>
+        <Button basic inverted color="@ButtonColor.Red" @onclick="@Click">
+            Red
+        </Button>
+        <Button basic inverted color="@ButtonColor.Orange" @onclick="@Click">
+            Orange
+        </Button>
+        <Button basic inverted color="@ButtonColor.Yellow" @onclick="@Click">
+            Yellow
+        </Button>
+        <Button basic inverted color="@ButtonColor.Olive" @onclick="@Click">
+            Olive
+        </Button>
+        <Button basic inverted color="@ButtonColor.Green" @onclick="@Click">
+            Green
+        </Button>
+        <Button basic inverted color="@ButtonColor.Teal" @onclick="@Click">
+            Teal
+        </Button>
+        <Button basic inverted color="@ButtonColor.Blue" @onclick="@Click">
+            Blue
+        </Button>
+        <Button basic inverted color="@ButtonColor.Violet" @onclick="@Click">
+            Violet
+        </Button>
+        <Button basic inverted color="@ButtonColor.Purple" @onclick="@Click">
+            Purple
+        </Button>
+        <Button basic inverted color="@ButtonColor.Pink" @onclick="@Click">
+            Pink
+        </Button>
+        <Button basic inverted color="@ButtonColor.Brown" @onclick="@Click">
+            Brown
+        </Button>
+        <Button basic inverted color="@ButtonColor.Grey" @onclick="@Click">
+            Grey
+        </Button>
+        <Button basic inverted color="@ButtonColor.Black" @onclick="@Click">
+            Black
+        </Button>
+    </div>
+</div>
+
+<h2>Group</h2>
+
+<ButtonGroup>
+    <Button @onclick="@Click">One</Button>
+    <Button @onclick="@Click">Two</Button>
+    <Button @onclick="@Click">Three</Button>
+</ButtonGroup>
+
+
+<h2>Icon Group</h2>
+
+<div>
+    <ButtonGroup>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.AlignLeft" />
+        </Button>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.AlignCenter" />
+        </Button>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.AlignRight" />
+        </Button>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.AlignJustify" />
+        </Button>
+    </ButtonGroup>
+    &nbsp;
+    <ButtonGroup>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.Bold" />
+        </Button>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.Underline" />
+        </Button>
+        <Button icon @onclick="@Click">
+            <Icon name="@Icon.TextWidth" />
+        </Button>
+    </ButtonGroup>
+</div>
+
+<h2>Conditionals</h2>
+
+<ButtonGroup>
+    <Button @onclick="@Click">Cancel</Button>
+    <ButtonOr />
+    <Button positive @onclick="@Click">Save</Button>
+</ButtonGroup>
+
+<br />
+<br />
+
+<ButtonGroup>
+    <Button @onclick="@Click">un</Button>
+    <ButtonOr text="ou" />
+    <Button positive @onclick="@Click">deux</Button>
+</ButtonGroup>
+
+<br />
+<br />
+
+<ButtonGroup>
+    <Button @onclick="@Click">One</Button>
+    <ButtonOr />
+    <Button @onclick="@Click">Two</Button>
+    <ButtonOr />
+    <Button @onclick="@Click">Three</Button>
+</ButtonGroup>
+
+<h2>Active</h2>
+<Button active @onclick="@Click">Active</Button>
+
+<h2>Disabled</h2>
+<Button disabled @onclick="@Click">Disabled</Button>
+
+<h2>Loading</h2>
+<div>
+    <Button loading>Loading</Button>
+    <Button basic loading>
+        Loading
+    </Button>
+    <Button loading primary>
+        Loading
+    </Button>
+    <Button loading secondary>
+        Loading
+    </Button>
+</div>
+
+<h2>Social</h2>
+<div>
+    <Button color="@ButtonColor.Facebook">
+        <Icon name="@Icon.Facebook" /> Facebook
+    </Button>
+    <Button color="@ButtonColor.Twitter">
+        <Icon name="@Icon.Twitter" /> Twitter
+    </Button>
+    <Button color="@ButtonColor.GooglePlus">
+        <Icon name="@Icon.GooglePlus" /> Google Plus
+    </Button>
+    <Button color="@ButtonColor.Vk">
+        <Icon name="@Icon.Vk" /> VK
+    </Button>
+    <Button color="@ButtonColor.Linkedin">
+        <Icon name="@Icon.Linkedin" /> LinkedIn
+    </Button>
+    <Button color="@ButtonColor.Instagram">
+        <Icon name="@Icon.Instagram" /> Instagram
+    </Button>
+    <Button color="@ButtonColor.Youtube">
+        <Icon name="@Icon.Youtube" /> YouTube
+    </Button>
+</div>
+
+<h2>Size</h2>
+<div>
+    <Button size="@Size.Mini">Mini</Button>
+    <Button size="@Size.Tiny">Tiny</Button>
+    <Button size="@Size.Small">Small</Button>
+    <Button size="@Size.Medium">Medium</Button>
+    <Button size="@Size.Large">Large</Button>
+    <Button size="@Size.Big">Big</Button>
+    <Button size="@Size.Huge">Huge</Button>
+    <Button size="@Size.Massive">Massive</Button>
+</div>
+
+<h2>Floated</h2>
+<div>
+    <Button floated="@HorizontalPosition.Right">Right Floated</Button>
+    <Button floated="@HorizontalPosition.Left">Left Floated</Button>
+</div>
+
+<h2>Colored</h2>
+<div>
+    <Button color="@ButtonColor.Red">Red</Button>
+    <Button color="@ButtonColor.Orange">Orange</Button>
+    <Button color="@ButtonColor.Yellow">Yellow</Button>
+    <Button color="@ButtonColor.Olive">Olive</Button>
+    <Button color="@ButtonColor.Green">Green</Button>
+    <Button color="@ButtonColor.Teal">Teal</Button>
+    <Button color="@ButtonColor.Blue">Blue</Button>
+    <Button color="@ButtonColor.Violet">Violet</Button>
+    <Button color="@ButtonColor.Purple">Purple</Button>
+    <Button color="@ButtonColor.Pink">Pink</Button>
+    <Button color="@ButtonColor.Brown">Brown</Button>
+    <Button color="@ButtonColor.Grey">Grey</Button>
+    <Button color="@ButtonColor.Black">Black</Button>
+</div>
+
+<h2>Compact</h2>
+<div>
+    <Button compact>Compact</Button>
+    <Button>Normal</Button>
+</div>
+
+<h2>Toggle</h2>
+@code{
+    bool ButtonActive { get; set; }
+    void ClickOnToggle()
+    {
+        ButtonActive = !ButtonActive;
+        Console.WriteLine("ButtonActive");
+    }
+}
+<Button toggle active="@ButtonActive" @onclick="@ClickOnToggle">
+    Toggle
+</Button>
+
+<h2>Positive</h2>
+<div>
+    <Button positive>Positive Button</Button>
+</div>
+
+<h2>Negative</h2>
+<div>
+    <Button negative>Negative Button</Button>
+</div>
+
+<h2>Fluid</h2>
+<Button fluid>Fits to Container</Button>
+
+<h2>Circular</h2>
+<Button circular icon>
+    <Icon name="@Icon.Settings" />
+</Button>
+<br />
+<br />
+<div>
+    <Button circular color="@ButtonColor.Facebook" icon>
+        <Icon name="@Icon.Facebook" />
+    </Button>
+    <Button circular color="@ButtonColor.Twitter" icon>
+        <Icon name="@Icon.Twitter" />
+    </Button>
+    <Button circular color="@ButtonColor.Linkedin" icon>
+        <Icon name="@Icon.Linkedin" />
+    </Button>
+    <Button circular color="@ButtonColor.GooglePlus" icon>
+        <Icon name="@Icon.GooglePlus" />
+    </Button>
+</div>
+
+<h2>Vertically Attached</h2>
+<div>
+    <Button attached="@Position.Top">Top</Button>
+    <div class="ui attached segment">
+        <img src="/images/wireframe/paragraph.png" alt="paragraph" />
+    </div>
+    <Button attached="@Position.Bottom">Bottom</Button>
+</div>
+<br />
+<br />
+<div>
+    <ButtonGroup attached="@Position.Top">
+        <Button>One</Button>
+        <Button>Two</Button>
+    </ButtonGroup>
+    <div class="ui attached segment">
+        <img src="/images/wireframe/paragraph.png" alt="paragraph" />
+    </div>
+    <ButtonGroup attached="@Position.Bottom">
+        <Button>One</Button>
+        <Button>Two</Button>
+    </ButtonGroup>
+</div>
+
+<h2>Horizontally Attached</h2>
+<div>
+    <Button attached="@Position.Left">Left</Button>
+    <Button attached="@Position.Right">Right</Button>
+</div>
+
+<h1>Group variations</h1>
+
+<h2>Floated Group</h2>
+<div>
+    <ButtonGroup floated="@HorizontalPosition.Left">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+    </ButtonGroup>
+    <ButtonGroup floated="@HorizontalPosition.Right">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+    </ButtonGroup>
+</div>
+
+<br/>
+<br/>
+
+<h2>Vertical Group</h2>
+<ButtonGroup vertical>
+    <Button>Feed</Button>
+    <Button>Messages</Button>
+    <Button>Events</Button>
+    <Button>Photos</Button>
+</ButtonGroup>
+
+<h2>Icon Group</h2>
+<ButtonGroup icon>
+    <Button>
+        <Icon name="@Icon.Play" />
+    </Button>
+    <Button>
+        <Icon name="@Icon.Pause" />
+    </Button>
+    <Button>
+        <Icon name="@Icon.Shuffle" />
+    </Button>
+</ButtonGroup>
+
+<h2>Labeled Icon Groups</h2>
+<ButtonGroup vertical labeled icon>
+    <Button>
+        <Icon name="@Icon.Play" /> Play
+    </Button>
+    <Button>
+        <Icon name="@Icon.Pause" /> Pause
+    </Button>
+    <Button>
+        <Icon name="@Icon.Shuffle" /> Shuffle
+    </Button>
+</ButtonGroup>
+
+<h2>Mixed Group</h2>
+<ButtonGroup>
+    <Button labelPosition="@HorizontalPosition.Left" icon>
+        <Icon name="@Icon.ChevronLeft" /> Back
+    </Button>
+    <Button>
+        <Icon name="@Icon.Stop" /> Stop
+    </Button>
+    <Button labelPosition="@HorizontalPosition.Right" icon>
+        <Icon name="@Icon.ChevronRight" /> Forward
+    </Button>
+</ButtonGroup>
+
+<h2>Equal Width</h2>
+<div>
+    <ButtonGroup widths="@Width.Five">
+        <Button>Overview</Button>
+        <Button>Specs</Button>
+        <Button>Warranty</Button>
+        <Button>Reviews</Button>
+        <Button>Support</Button>
+    </ButtonGroup>
+    <Divider />
+    <ButtonGroup widths="@Width.Three">
+        <Button>Overview</Button>
+        <Button>Specs</Button>
+        <Button>Support</Button>
+    </ButtonGroup>
+</div>
+
+<h2>Colored Group</h2>
+<ButtonGroup color="@Color.Blue">
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+</ButtonGroup>
+
+<h2>Basic Group</h2>
+<div>
+    <ButtonGroup basic>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+    </ButtonGroup>
+    <Divider />
+    <ButtonGroup basic vertical>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+    </ButtonGroup>
+</div>
+
+<br/>
+<br/>
+
+<ButtonGroup>
+    <Button basic color="@Color.Red">
+        One
+    </Button>
+    <Button basic color="@Color.Green">
+        Two
+    </Button>
+    <Button basic color="@Color.Blue">
+        Three
+    </Button>
+</ButtonGroup>
+
+<h2>Group Sizes</h2>
+<ButtonGroup size="@Size.Large">
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+</ButtonGroup>
+
+<br/>
+<br/>
+
+<ButtonGroup basic size="@Size.Small">
+    <Button>
+        <Icon name="@Icon.File"/>
+    </Button>
+    <Button>
+        <Icon name="@Icon.Save" />
+    </Button>
+    <Button>
+        <Icon name="@Icon.Upload" />
+    </Button>
+    <Button>
+        <Icon name="@Icon.Download" />
+    </Button>
+</ButtonGroup>
+
+<br/>
+<br/>
+
+<ButtonGroup size="@Size.Large">
+    <Button>One</Button>
+    <ButtonOr />
+    <Button>Three</Button>
+</ButtonGroup>
