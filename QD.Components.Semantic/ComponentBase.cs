@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 
 namespace QD.Components.Semantic
 {
@@ -51,8 +51,6 @@ namespace QD.Components.Semantic
 		/// </summary>
 		protected IDictionary<string, object> ElementAttributes { get; }
 
-		private RenderFragment _componentRenderer;
-
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -66,50 +64,22 @@ namespace QD.Components.Semantic
 		/// <inheritdoc />
 		protected override void OnInitialized()
 		{
-			ConfigureComponent();
-
-			if (InputAttributes != null && InputAttributes.ContainsKey("Class"))
+			if (!ElementAttributes.ContainsKey("Class"))
 			{
-				ElementClass = $"{ElementClass} {InputAttributes["Class"]}";
-				InputAttributes.Remove("Class");
+				ElementAttributes.Add("Class", "");
 			}
-
-			_componentRenderer = builder =>
-			{
-				if (AsComponent != null)
-				{
-					if (!ElementAttributes.ContainsKey(nameof(ChildContent)))
-					{
-						ElementAttributes.Add(nameof(ChildContent), ChildContent);
-					}
-					builder.OpenComponent(0, AsComponent);
-					builder.AddMultipleAttributes(1, ElementAttributes);
-					builder.AddMultipleAttributes(2, InputAttributes);
-					builder.CloseComponent();
-				}
-				else
-				{
-					if (!ElementAttributes.ContainsKey("Class"))
-					{
-						ElementAttributes.Add("Class", ElementClass);
-					}
-					builder.OpenElement(0, string.IsNullOrWhiteSpace(As) ? ElementTag : As);
-					builder.AddMultipleAttributes(1, ElementAttributes);
-					builder.AddContent(2, ChildContent);
-					builder.CloseElement();
-				}
-			};
+			BuildComponent();
 		}
 
-
 		/// <inheritdoc />
-		public override async Task SetParametersAsync(ParameterView parameters)
+		protected override void OnParametersSet()
 		{
-			await base.SetParametersAsync(parameters);
+			base.OnParametersSet();
 			if (AsComponent == null && InputAttributes != null)
 			{
 				foreach (KeyValuePair<string, object> attribute in InputAttributes)
 				{
+					//TODO Remove
 					Console.WriteLine(attribute.Key);
 				}
 				foreach (KeyValuePair<string, object> attribute in InputAttributes)
@@ -117,12 +87,32 @@ namespace QD.Components.Semantic
 					ThrowForUnknownIncomingParameterName(attribute.Key);
 				}
 			}
+			BuildComponent();
 		}
+
+		///// <inheritdoc />
+		//public override async Task SetParametersAsync(ParameterView parameters)
+		//{
+		//	await base.SetParametersAsync(parameters);
+		//}
 
 		/// <inheritdoc />
 		protected override void BuildRenderTree(RenderTreeBuilder builder)
 		{
-			builder.AddContent(0, _componentRenderer);
+			if (AsComponent != null)
+			{
+				builder.OpenComponent(0, AsComponent);
+				builder.AddMultipleAttributes(1, ElementAttributes);
+				builder.AddMultipleAttributes(2, InputAttributes);
+				builder.CloseComponent();
+			}
+			else
+			{
+				builder.OpenElement(0, string.IsNullOrWhiteSpace(As) ? ElementTag : As);
+				builder.AddMultipleAttributes(1, ElementAttributes);
+				builder.AddContent(2, ChildContent);
+				builder.CloseElement();
+			}
 		}
 
 		private void ThrowForUnknownIncomingParameterName(string parameterName)
@@ -142,5 +132,22 @@ namespace QD.Components.Semantic
 		/// Configure the semantic component to be rendered
 		/// </summary>
 		protected abstract void ConfigureComponent();
+
+		private void BuildComponent()
+		{
+			ConfigureComponent();
+			if (InputAttributes != null && InputAttributes.ContainsKey("Class"))
+			{
+				ElementClass = $"{ElementClass} {InputAttributes["Class"]}";
+				InputAttributes.Remove("Class");
+			}
+
+			if (AsComponent != null && !ElementAttributes.ContainsKey(nameof(ChildContent)))
+			{
+				ElementAttributes.Add(nameof(ChildContent), ChildContent);
+			}
+
+			ElementAttributes["Class"] = ElementClass;
+		}
 	}
 }
