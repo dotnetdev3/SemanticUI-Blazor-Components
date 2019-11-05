@@ -3,7 +3,7 @@
 namespace QD.Components.Semantic.Enums
 {
 	/// <summary>
-	/// Size
+	/// Semantic Size
 	/// </summary>
 	public enum Size
 	{
